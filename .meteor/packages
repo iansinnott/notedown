@@ -6,3 +6,9 @@
 meteor-platform
 autopublish
 insecure
+cryptoquick:stylus-multi
+mquandalle:jade
+iron:router
+accounts-ui
+accounts-password
+
