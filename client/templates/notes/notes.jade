@@ -1,0 +1,13 @@
+template(name='notes')
+  h1 All Notes
+
+  ul#notes
+    if notes
+      each notes
+        li= note
+        li
+          | Date: 
+          = date
+    else
+      li You have no notes
+  button.click-me Click Here!

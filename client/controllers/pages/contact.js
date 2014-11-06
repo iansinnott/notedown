@@ -1,3 +1,7 @@
+Template.contact.helpers({
+  stuff: {thing: "Some string"}
+});
+
 Template.contact.events({
   'submit form': function (e) {
     e.preventDefault();
