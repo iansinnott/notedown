@@ -2,14 +2,19 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 $font = 'Helvetica Neue', Helvetica, Arial, sans-serif
+code-font = "Courier New", "Menlo", monospace
 
 // }}} END Variables
 global-reset()
 
+// Colors
+gray = #EEEEEE
+light-gray = #dadada
+
+
 *
   box-sizing border-box
 body
-  background #fafafa
   font-family $font
 
 .slide-down
@@ -28,27 +33,125 @@ body
   border 1px solid darken(red, 10%)
   color lighten(red, 80%)
 
-#container
+.container
   max-width 800px
   margin 0 auto
+
+a
+  color blue
+  &:hover
+    text-decoration underline
+
+h1
+h2
+h3
+p
+  color black
+  margin-bottom 20px
+  &.center
+    text-align center
+
+h1
+  font-size 48px
+  font-weight 500
+h2
+  font-size 28px
+  font-weight 500
+h3
+  font-size 24px
+p
+  font-size 18px
+  line-height 1.4
+
+.code
+  font-family code-font
+
+// A div that is meant to look like a finder window
+.window
+  background white
+  border-radius 3px
+  border 1px solid darken(gray, 10%)
+  box-shadow 0 2px 3px rgba(0, 0, 0, 0.5)
+  .title-bar
+    background gray
+    text-align center
+    background linear-gradient(top, gray, #d4d4d4)
+    border-bottom 1px solid darken(gray, 20%)
+    p
+      line-height 28px
+      font-size 15px
+      font-weight bold
+      color #797979
+      margin 0
+
+.right
+  float right
+
+// Landing {{{
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#header
+  background #fafafa
+#banner
+  background #fafafa
+  overflow hidden
+  border-bottom 1px solid darken(gray, 10%)
+  margin-bottom 50px
+#pitch
+  h2
+    margin-bottom 50px
+
+#mini-demo
+  width 100%
+  height 500px
+  position relative
+  bottom -5px
+  h1 // Temporary
+    position absolute
+    text-align center
+    top 50%
+    left 0
+    right 0
+
+h1.super
+  font-size 66px
+  .code
+    font-size 82px
+    margin-left -20px
+
+// }}} END Landing
 
 // Header {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 #header
-  margin-bottom 30px
-  margin-top 30px
+  clearfix()
+  padding-top 30px
+  padding-bottom 30px
   nav
     text-align center
   #login-buttons
     display inline-block
 
+#login-buttons
+  #login-sign-in-link
+    display block
+    background gray
+    color darken(gray, 40%)
+    padding 8px 10px
+    text-decoration none
+    border-radius 3px
+    &:hover
+      text-decoration none
+  .login-button
+    background blue
+    &:hover
+      background darken(blue, 20%)
+
 // }}} END Header
 
 // New Note {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-light-gray = #dadada
 
 #new-note
   margin-bottom 30px
