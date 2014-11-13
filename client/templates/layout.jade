@@ -5,3 +5,14 @@ template(name='appLayout')
         +loginButtons(align='right')
   section#main-wrapper
     +yield
+  footer#footer
+    .container
+      nav.footer-nav
+        ul
+          li: a(href='/') Home
+          li: a(href='/about') About
+          li: a(href='/demo') Demo
+          li: a(href='/contact') Contact
+      .copy.right
+        p.small &copy; Ian Sinnott 2014
+

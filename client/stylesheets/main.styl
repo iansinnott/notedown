@@ -1,16 +1,19 @@
+global-reset()
+
 // Variables {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 $font = 'Helvetica Neue', Helvetica, Arial, sans-serif
 code-font = "Courier New", "Menlo", monospace
 
-// }}} END Variables
-global-reset()
-
 // Colors
 gray = #EEEEEE
 light-gray = #dadada
 
+// }}} END Variables
+
+// General {{{
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 *
   box-sizing border-box
@@ -36,6 +39,20 @@ body
 .container
   max-width 800px
   margin 0 auto
+
+nav
+  li
+    display inline-block
+    &:first-child
+      a
+        padding-left 0
+    &:last-child
+      a
+        margin-right 0
+  a
+    display block
+    padding-right 10px
+    padding-left 10px
 
 a
   color blue
@@ -86,6 +103,12 @@ p
 
 .right
   float right
+
+
+#main-wrapper
+  padding-bottom 50px
+
+// }}} END General
 
 // Landing {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -198,3 +221,28 @@ h1.super
     color white
 
 // }}} END Archived Notes
+
+// Footer {{{
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#footer
+  padding-top 25px
+  padding-bottom 25px
+  border-top 1px solid darken(gray, 10%)
+  background gray
+  .container
+    display table
+    width 100%
+    vertical-align middle
+
+.footer-nav
+  display table-cell
+  vertical-align middle
+
+.copy
+  display table-cell
+  vertical-align middle
+  p
+    margin 0
+
+// }}} END Footer
