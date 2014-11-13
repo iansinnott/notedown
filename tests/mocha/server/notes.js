@@ -17,9 +17,6 @@ MochaWeb.testOnly(function(){
     it("Should create notes", function() {
       expect(true).to.be.true;
     });
-    it("Should have sinon", function() {
-      expect(sinon).to.not.be.undefined;
-    });
     it.skip("Should update notes");
     it.skip("Should archive notes");
     it.skip("Should restore notes once archived");
