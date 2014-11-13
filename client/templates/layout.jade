@@ -9,7 +9,10 @@ template(name='appLayout')
     .container
       nav.footer-nav
         ul
-          li: a(href='/') Home
+          if currentUser
+            li: a(href='/notes') Notes
+          else
+            li: a(href='/') Home
           li: a(href='/demo') Demo
           li: a(href='/feedback') Feedback
       .copy.right

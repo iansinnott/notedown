@@ -2,22 +2,23 @@ head
   title NoteDown | Notes
 
 template(name='notes')
-  #new-note
-    input(type='text', placeholder='New Note...')
-    i.fa.fa-edit
+  .container
+    #new-note
+      input(type='text', placeholder='New Note...')
+      i.fa.fa-edit
 
-  h1 All Notes
-  ul#notes
-    if notes
-      each notes
-        +note
-    else
-      li You have no notes
+    h1 All Notes
+    ul#notes
+      if notes
+        each notes
+          +note
+      else
+        li You have no notes
 
-  h1 Archives
-  ul#archives
-    if archived_notes
-      each archived_notes
-        +archivedNote
-    else
-      li You have no archived notes
+    h1 Archives
+    ul#archives
+      if archived_notes
+        each archived_notes
+          +archivedNote
+      else
+        li You have no archived notes

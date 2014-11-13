@@ -1,0 +1,13 @@
+template(name='emailLogin')
+  form#login.full
+    h3.center= title
+    .input-group
+      i.fa.fa-envelope-o
+      input#email(type='email', placeholder='Email')
+    .input-group
+      i.fa.fa-unlock-alt
+      input#pass(type='password', placeholder='Password')
+    button(type='submit')
+      = submit
+      i.fa.fa-sign-in
+    .alert-error.slide-down
