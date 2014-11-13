@@ -1,0 +1,97 @@
+// Variables {{{
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$font = 'Helvetica Neue', Helvetica, Arial, sans-serif
+
+// }}} END Variables
+global-reset()
+
+*
+  box-sizing border-box
+body
+  background #fafafa
+  font-family $font
+
+.slide-down
+  display none
+
+.alert
+  color white
+  padding 10px
+  border-radius 3px
+.alert-success
+  background green
+  border 1px solid darken(green, 10%)
+  color lighten(green, 80%)
+.alert-error
+  background red
+  border 1px solid darken(red, 10%)
+  color lighten(red, 80%)
+
+#container
+  max-width 800px
+  margin 0 auto
+
+// Header {{{
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#header
+  margin-bottom 30px
+  margin-top 30px
+  nav
+    text-align center
+  #login-buttons
+    display inline-block
+
+// }}} END Header
+
+// New Note {{{
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+light-gray = #dadada
+
+#new-note
+  margin-bottom 30px
+  position relative
+  i
+    color darken(light-gray, 20%)
+    font-size 30px
+    position absolute
+    left 10px
+    top 8px
+  input
+    width 100%
+    padding 5px 8px
+    padding-left 45px
+    font-size 24px
+    border-radius 3px
+    border 1px solid light-gray
+  &.focus
+    i
+      color black
+
+// }}} END New Note
+
+// Notes {{{
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.note
+  ul.table
+    display table
+  li.cell
+    display table-cell
+  .text
+    font-weight bold
+    background #dadada
+
+// }}} END Notes
+
+// Archived Notes {{{
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.note.archived
+  .text
+    background red
+    color white
+
+// }}} END Archived Notes

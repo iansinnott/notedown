@@ -1,13 +1,20 @@
 template(name='notes')
-  h1 All Notes
+  #new-note
+    input(type='text', placeholder='New Note...')
+    i.fa.fa-edit
 
+  h1 All Notes
   ul#notes
     if notes
       each notes
-        li= note
-        li
-          | Date: 
-          = date
+        +note
     else
       li You have no notes
-  button.click-me Click Here!
+
+  h1 Archives
+  ul#archives
+    if archived_notes
+      each archived_notes
+        +archivedNote
+    else
+      li You have no archived notes
