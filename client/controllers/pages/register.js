@@ -1,4 +1,4 @@
-Template.login.events({
+Template.register.events({
   'submit form': function(e, template) {
     e.preventDefault();
 
@@ -18,7 +18,7 @@ Template.login.events({
       return false;
     }
 
-    Meteor.loginWithPassword(email, pass, function(err) {
+    Accounts.createUser({ email: email, password: pass }, function(err) {
       if (err) {
         $alertMessage
           .html(err.reason)

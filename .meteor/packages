@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 insecure
 cryptoquick:stylus-multi
 mquandalle:jade
@@ -14,6 +13,5 @@ accounts-password
 pfafman:font-awesome-4
 mrt:moment
 natestrauser:select2
-mike:mocha
 multiply:iron-router-progress
-
+chuangbo:marked

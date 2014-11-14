@@ -6,6 +6,7 @@ Meteor.startup(function () {
     Notes.insert({
       type: 'note', // String note|action|question
       note: "Hey bro nice notes",
+      author: Meteor.userId(),
       archived: false, // Bool true|false
       client: null, // null|String 'id'
       created_at: Date.now(),
@@ -14,6 +15,7 @@ Meteor.startup(function () {
     Notes.insert({
       type: 'note',
       note: "Second Note, it's pretty great.",
+      author: Meteor.userId(),
       archived: false,
       client: null,
       created_at: Date.now(),
@@ -31,6 +33,7 @@ var TOKENS = {
 };
 
 // Temp: Refactor this
+// Todo
 function selectedClient() {
   return false;
 }
@@ -49,6 +52,7 @@ Meteor.methods({
     return Notes.insert({
       type: type,
       note: (type === 'note') ? text : text.slice(1),
+      author: Meteor.userId(),
       archived: false,
       client: selectedClient() || null,
       created_at: Date.now(),
