@@ -18,10 +18,11 @@ Template.notes.events({
     var input = e.currentTarget;
 
     if (e.which === ENTER_KEY && input.value.trim()) {
-      Meteor.call('note', input.value.trim(), function(err, data) {
-        if (err)
-          return console.error(err.reason);
-        console.log(data);
+      Meteor.call('note', input.value.trim(), function(err, id) {
+        if (err) return console.error(err.reason);
+
+        // TODO: This should be removed
+        console.log(id);
       });
       input.value = '';
     }

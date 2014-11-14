@@ -4,14 +4,13 @@ Template.login.events({
 
     var $alertMessage = template.$('.alert-error');
 
-    window.template = template;
-
     $alertMessage.slideUp();
 
     var email = template.$('#email').val().trim(),
         pass  = template.$('#pass').val().trim();
 
     if (!email || !pass) {
+      console.log("Didn't fill it all out"); // debug
       $alertMessage
         .html("Please fill out both fields.")
         .slideDown();
@@ -20,14 +19,19 @@ Template.login.events({
 
     Meteor.loginWithPassword(email, pass, function(err) {
       if (err) {
+        console.log(err.reason); // debug
         $alertMessage
           .html(err.reason)
           .slideDown();
         return false;
       }
 
-      Router.go('/notes');
+      console.log('would normally redirect here'); // debug
+      // Router.go('/notes');
     });
+
+    console.log('return false'); // debug
+    return false;
 
   }
 });

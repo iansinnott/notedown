@@ -1,0 +1,9 @@
+template(name='loginButton')
+  if currentUser
+    a.logout(href='#').btn-login
+      | Sign Out
+      i.fa.fa-sign-out
+  else
+    a.login(href='/login').btn-login
+      | Sign In
+      i.fa.fa-sign-in

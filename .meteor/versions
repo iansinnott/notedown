@@ -12,7 +12,6 @@ boilerplate-generator@1.0.1
 callback-hook@1.0.1
 check@1.0.2
 chuangbo:marked@0.3.5
-coffeescript@1.0.4
 cryptoquick:stylus-multi@0.1.1
 ctl-helper@1.0.4
 ctl@1.0.2
@@ -51,7 +50,6 @@ mobile-status-bar@1.0.1
 mongo@1.0.8
 mquandalle:jade@0.2.9
 mrt:moment@2.8.1
-multiply:iron-router-progress@1.0.0
 natestrauser:select2@3.5.1
 npm-bcrypt@0.7.7
 observe-sequence@1.0.3
@@ -63,6 +61,7 @@ reactive-var@1.0.3
 reload@1.1.1
 retry@1.0.1
 routepolicy@1.0.2
+sacha:spin@2.0.4
 service-configuration@1.0.2
 session@1.0.4
 sha@1.0.1

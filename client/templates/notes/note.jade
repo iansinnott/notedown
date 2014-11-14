@@ -2,5 +2,5 @@ template(name='note')
   .note
     ul.table
       li.cell.text= note
-      li.cell.date= created_at
+      li.cell.date= formatDate
       li.cell: button.delete(href='#'): i.fa.fa-times
