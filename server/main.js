@@ -7,6 +7,7 @@ Meteor.startup(function () {
       type: 'note', // String note|action|question
       note: "Hey bro nice notes",
       archived: false, // Bool true|false
+      client: null, // null|String 'id'
       created_at: Date.now(),
       updated_at: Date.now()
     });
@@ -14,6 +15,7 @@ Meteor.startup(function () {
       type: 'note',
       note: "Second Note, it's pretty great.",
       archived: false,
+      client: null,
       created_at: Date.now(),
       updated_at: Date.now()
     });
@@ -27,6 +29,11 @@ var TOKENS = {
   '!': 'action',
   '?': 'question'
 };
+
+// Temp: Refactor this
+function selectedClient() {
+  return false;
+}
 
 Meteor.methods({
 
@@ -43,6 +50,7 @@ Meteor.methods({
       type: type,
       note: (type === 'note') ? text : text.slice(1),
       archived: false,
+      client: selectedClient() || null,
       created_at: Date.now(),
       updated_at: Date.now()
     });
