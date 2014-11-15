@@ -6,24 +6,19 @@ Template.notes.helpers({
 });
 
 Template.notes.events({
-  'focus #new-note': function(e, template) {
+  'focus #new-note input': function(e, template) {
     template.$('#new-note').addClass('focus');
   },
 
-  'blur #new-note': function(e, template) {
+  'blur #new-note input': function(e, template) {
     template.$('#new-note').removeClass('focus');
   },
 
-  'keydown #new-note': function(e, template) {
+  'keydown #new-note input': function(e, template) {
     var input = e.currentTarget;
 
     if (e.which === ENTER_KEY && input.value.trim()) {
-      Meteor.call('note', input.value.trim(), function(err, id) {
-        if (err) return console.error(err.reason);
-
-        // TODO: This should be removed
-        console.log(id);
-      });
+      Meteor.call('note', input.value.trim(), Utils.logError);
       input.value = '';
     }
   }
