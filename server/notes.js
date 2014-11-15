@@ -44,6 +44,15 @@ Meteor.methods({
   },
 
   /**
+   * Update an existing note.
+   *
+   * TODO: This isn't very secure it seems.
+   */
+  update: function(note, data) {
+    Notes.update(note, { $set: data });
+  },
+
+  /**
    * Archive a note. Notes that are note yet archived can only be archived as
    * opposed to deleted. Only notes that have already been archived can be
    * deleted.

@@ -267,6 +267,9 @@ h1.super
 // Notes {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+.hidden
+  display none
+
 .note
   ul.table
     display table
@@ -275,6 +278,13 @@ h1.super
   .text
     font-weight bold
     background #dadada
+
+// Open, editting state
+.note.editting
+  .text-edit
+    display block
+  // .text
+  //   display none
 
 // }}} END Notes
 

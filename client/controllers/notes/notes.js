@@ -6,15 +6,15 @@ Template.notes.helpers({
 });
 
 Template.notes.events({
-  'focus input': function(e, view) {
-    view.$('#new-note').addClass('focus');
+  'focus #new-note': function(e, template) {
+    template.$('#new-note').addClass('focus');
   },
 
-  'blur input': function(e, view) {
-    view.$('#new-note').removeClass('focus');
+  'blur #new-note': function(e, template) {
+    template.$('#new-note').removeClass('focus');
   },
 
-  'keydown input': function(e, view) {
+  'keydown #new-note': function(e, template) {
     var input = e.currentTarget;
 
     if (e.which === ENTER_KEY && input.value.trim()) {

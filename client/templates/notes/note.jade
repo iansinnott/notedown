@@ -1,6 +1,8 @@
 template(name='note')
   .note
     ul.table
-      li.cell.text= note
-      li.cell.date= formatDate
+      li.cell
+        p.text= note
+        input.text-edit.hidden(type='text', value='#{note}')
+      li.cell: p.date= formatDate
       li.cell: button.delete(href='#'): i.fa.fa-archive
