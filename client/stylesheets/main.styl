@@ -1,5 +1,7 @@
 global-reset()
 
+@require 'jeet'
+
 // Variables {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -124,11 +126,42 @@ section
 // Landing {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+.client-select-box
+  width 100%
+.client-select
+  position relative
+  height 37px
+  margin 0 auto
+  text-align center
+  select
+    text-align left
+  .select2-container
+    margin-top 6px
+    width 200px
+    text-align left
+
+.dib
+  display inline-block
+
 .user-email
   color darken(gray, 30%)
   margin 0
   line-height 37px // Happens to be the hight of the sign in button
   margin-right 20px
+
+.logo-small
+  font-size 22px
+  font-weight bold
+  line-height 37px // Happens to be the hight of the sign in button
+  a
+    text-decoration none
+    color black
+    &:hover
+      text-decoration none
+  .code
+    font-size 28px
+    margin-left -5px
+    font-weight normal
 
 #header.landing
   background #fafafa

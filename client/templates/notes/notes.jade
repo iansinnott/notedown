@@ -1,6 +1,19 @@
 head
   title NoteDown | Notes
 
+// Will be rendered in the header
+template(name='notesHeader')
+  .client-select-box
+    .client-select
+      select#select2.dib
+        option
+        option(value='1') Dude Bro
+        option(value='2') Face House
+        option(value='3') Happy Ending
+        option(value='4') Rage Gator
+      
+
+// Rendered in the main app area
 template(name='notes')
   .container
     #new-note
