@@ -10,28 +10,32 @@ Template.login.events({
         pass  = template.$('#pass').val().trim();
 
     if (!email || !pass) {
-      console.log("Didn't fill it all out"); // debug
       $alertMessage
         .html("Please fill out both fields.")
         .slideDown();
       return false;
     }
 
-    Meteor.loginWithPassword(email, pass, function(err) {
-      if (err) {
-        console.log(err.reason); // debug
-        $alertMessage
-          .html(err.reason)
-          .slideDown();
-        return false;
-      }
+    Meteor.loginWithPassword(email, pass, handleError);
 
-      console.log('would normally redirect here'); // debug
-      // Router.go('/notes');
-    });
-
-    console.log('return false'); // debug
+    // Redirection upon success is handled reactively by the router. I.e. when
+    // Meteor.user() changes as the user logs in the routers computation will be
+    // invalidated and the router itself will redirect to the correct page. As
+    // such, we simply return false to prevent the form from doing anything at
+    // all.
     return false;
-
   }
 });
+
+/**
+ * Handle an error by showing the user the reason for the error and sliding down
+ * the div that contains said text.
+ */
+function handleError(err, $div) {
+  if (!err) return;
+
+  console.log(err.reason); // debug
+  $('.alert-error')
+    .html(err.reason)
+    .slideDown();
+}
