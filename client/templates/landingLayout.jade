@@ -1,9 +1,8 @@
-template(name='appLayout')
-  header#header
+template(name='landingLayout')
+  header#header.landing
     .container
       nav.right
         +loginButton
-      p.user-email.right= userEmail
   section#main-wrapper
     +yield
   footer#footer
