@@ -5,7 +5,7 @@ template(name='appLayout')
         a(href='/notes')
           | Note
           span.code Down
-      nav.right
+      nav.right.login-out
         +loginButton
       p.user-email.right= userEmail
       +yield('header')

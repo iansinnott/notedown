@@ -149,6 +149,12 @@ section
   line-height 37px // Happens to be the hight of the sign in button
   margin-right 20px
 
+
+.login-out
+.logo-small
+  position relative
+  z-index 2
+
 .logo-small
   font-size 22px
   font-weight bold
@@ -370,17 +376,18 @@ form
   width 100%
   margin 0 auto
 
-input[type=text]
-input[type=password]
-input[type=email]
-input[type=tel]
-  border 1px solid gray
-  padding 10px 15px
-  font-size 18px
-  margin-bottom 10px
-  width 100%
-  &:focus
-    border 1px solid darken(gray, 20%)
+.form
+  input[type=text]
+  input[type=password]
+  input[type=email]
+  input[type=tel]
+    border 1px solid gray
+    padding 10px 15px
+    font-size 18px
+    margin-bottom 10px
+    width 100%
+    &:focus
+      border 1px solid darken(gray, 20%)
 
 
 .input-group
