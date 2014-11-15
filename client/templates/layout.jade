@@ -1,6 +1,7 @@
 template(name='appLayout')
   header#header
     .container
+      p.user-email.left= userEmail
       nav.right
         +loginButton
   section#main-wrapper

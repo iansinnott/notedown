@@ -14,3 +14,8 @@
 Template.registerHelper('formatDate', function() {
   return moment(this.created_at).format('MM-DD');
 });
+
+Template.registerHelper('userEmail', function() {
+  if (Meteor.user())
+    return Meteor.user().emails[0].address;
+});
