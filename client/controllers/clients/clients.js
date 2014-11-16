@@ -1,6 +1,8 @@
 // Client List
 
 Template.clients.helpers({
+  clients: Clients.find({ archived: false }, { sort: { 'created_at': -1 } }),
+  archived_clients: Clients.find({ archived: true }, { sort: { 'created_at': -1 } })
 });
 
 Template.clients.events({

@@ -1,0 +1,9 @@
+template(name='archivedClient')
+  .client.archived
+    ul.table
+      li.cell
+        p.text= name
+        input.text-edit.hidden(type='text', value='#{name}')
+      li.cell: p.date= formatDate
+      li.cell: button.restore(href='#'): i.fa.fa-level-up
+      li.cell: button.delete(href='#'): i.fa.fa-archive

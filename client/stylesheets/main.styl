@@ -350,12 +350,12 @@ h1.super
 // New Note {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-#new-note
+super-input()
   margin-bottom 30px
   position relative
   i
     color darken(light-gray, 20%)
-    font-size 30px
+    font-size 26px
     position absolute
     left 10px
     top 8px
@@ -369,6 +369,13 @@ h1.super
   &.focus
     i
       color black
+#new-note
+#new-client
+  super-input()
+
+#new-note
+  i
+    font-size 30px
 
 // }}} END New Note
 
@@ -458,17 +465,17 @@ form
       border 1px solid darken(gray, 20%)
 
 
-.input-group
-  position relative
-  margin-bottom 10px
-  i
-    absolute left 10px
-    line-height 43px
-    font-size 20px
-    text-align center
-  input
-    margin-bottom 0
-    padding-left 40px
+  .input-group
+    position relative
+    margin-bottom 10px
+    i
+      absolute left 10px
+      line-height 43px
+      font-size 20px
+      text-align center
+    input
+      margin-bottom 0
+      padding-left 40px
 
 button[type=submit]
 input[type=submit]

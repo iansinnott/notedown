@@ -1,3 +1,11 @@
+/**
+ * TODO: This is basically mimicking autopublish. Make sure that this gets fixed
+ * to only publish clients of a given user.
+ */
+Meteor.publish('clients', function() {
+  return Clients.find();
+});
+
 Meteor.methods({
 
   client: function(name) {
@@ -5,7 +13,7 @@ Meteor.methods({
 
     if (!name) return new Meteor.Error('no-name', 'No name provided.');
 
-    return Client.insert({
+    return Clients.insert({
       name: name,
       userId: Meteor.userId(),
       archived: false,
@@ -14,12 +22,20 @@ Meteor.methods({
     });
   },
 
-  updateClient: function(client) { },
+  updateClient: function(client, data) {
+    Notes.update(client, { $set: data });
+  },
 
-  archiveClient: function(client) { },
+  archiveClient: function(client) {
+    Clients.update(client, { $set: { archived: true } });
+  },
 
-  restoreClient: function(client) { },
+  restoreClient: function(client) {
+    Clients.update(client, { $set: { archived: false } });
+  },
 
-  destroyClient: function(client) { }
+  destroyClient: function(client) {
+    Clients.remove(client);
+  }
 
 });
