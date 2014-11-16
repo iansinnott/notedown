@@ -26,7 +26,9 @@ template(name='notes')
         each notes
           +note
       else
-        li You have no notes
+        li.no-records
+          h4 You don't have any notes yet.
+          p Add one using the input above.
 
     h1 Archives
     ul#archives

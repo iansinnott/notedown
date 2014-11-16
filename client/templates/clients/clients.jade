@@ -1,0 +1,26 @@
+head
+  title NoteDown | Clients
+
+template(name='clients')
+  .container
+    #new-client
+      input(type='text', placeholder='New Client...')
+      i.fa.fa-users
+
+    h1 All Clients
+    ul#clients
+      if clients
+        each clients
+          +client
+      else
+        li.no-records
+          h4 You don't have any clients yet.
+          p Add one using the input above.
+
+    h1 Archives
+    ul#archives
+      if archived_clients
+        each archived_clients
+          +archivedClient
+      else
+        li Archived clients will appear here
