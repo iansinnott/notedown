@@ -1,6 +1,5 @@
 Template.notes.helpers({
-  notes: Notes.find({ archived: false }, { sort: { 'created_at': -1 } }),
-  archived_notes: Notes.find({ archived: true }, { sort: { 'created_at': -1 } })
+  notes: Notes.find({ archived: false }, { sort: { 'created_at': -1 } })
 });
 
 Template.notes.events({

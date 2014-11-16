@@ -1,0 +1,15 @@
+template(name='archive')
+  .container
+    h1 Archived Notes
+    ul#notes
+      if archived_notes
+        each archived_notes
+          +archivedNote
+      else
+        li.no-records
+          h4 You don't have any archived notes yet.
+          p
+            | Notes can be archived from by clicking the
+            i.fa.fa-archive
+            | icon.
+

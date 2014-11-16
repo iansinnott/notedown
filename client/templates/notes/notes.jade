@@ -30,10 +30,3 @@ template(name='notes')
           h4 You don't have any notes yet.
           p Add one using the input above.
 
-    h1 Archives
-    ul#archives
-      if archived_notes
-        each archived_notes
-          +archivedNote
-      else
-        li You have no archived notes
