@@ -1,8 +1,26 @@
 template(name='loginButton')
   if currentUser
-    a.logout(href='#').btn-login
-      | Sign Out
-      i.fa.fa-sign-out
+    nav#menu.dropdown
+      .toggle
+        p.email
+          = userEmail
+          i.fa.fa-caret-down
+          i.fa.fa-caret-up.hidden
+      ul
+        li: a(href='/notes')
+              i.fa.fa-edit
+              | Notes
+        li: a(href='/clients')
+              i.fa.fa-users
+              | Clients
+        li: a(href='/archive')
+              i.fa.fa-archive
+              | Archive
+        li: a.logout(href='#')
+              i.fa.fa-sign-out
+              | Sign Out
+
+
   else
     a.login(href='/login').btn-login
       | Sign In

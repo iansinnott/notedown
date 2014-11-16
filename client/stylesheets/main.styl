@@ -169,8 +169,6 @@ section
     margin-left -5px
     font-weight normal
 
-#header.landing
-  background #fafafa
 #banner
   margin-top 0
   background #fafafa
@@ -253,6 +251,9 @@ h1.super
 // Header {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+#header.landing
+  background #fafafa
+
 #header
   clearfix()
   padding-top 30px
@@ -276,6 +277,73 @@ h1.super
     background blue
     &:hover
       background darken(blue, 20%)
+
+
+.dropdown
+  position relative
+  .toggle
+    text-align left
+    cursor pointer
+    background gray
+    border-radius 3px
+    padding 10px 15px
+    &:hover
+      background darken(gray, 20%)
+      p
+        color black
+    p,i
+      user-select none
+    p
+      color darken(gray, 40%)
+      cursor pointer
+    i
+      margin-left 5px
+  p
+    margin 0
+  ul
+    display none
+    width 100%
+    position absolute
+    left 0
+    top 110%
+    border-radius 3px
+    box-shadow 0 1px 3px transparentify(black, .3)
+    background gray
+
+  li
+    display block
+    text-align left
+    &:first-child
+      a
+        padding-left 15px
+  a
+    color black
+    display block
+    width 100%
+    padding 15px
+    text-decoration none
+    position relative
+    &:hover
+      background blue
+      color white
+    i
+      margin-right 10px
+
+.dropdown.open
+  .toggle
+    background darken(gray, 40%)
+    p
+      color white
+    .fa-caret-down
+      display none
+    .fa-caret-up
+      display inline-block
+  ul
+    display block
+
+
+
+
 
 // }}} END Header
 
