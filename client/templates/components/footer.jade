@@ -1,0 +1,13 @@
+template(name='footer')
+  nav.footer-nav
+    ul
+      if currentUser
+        li: a(href='/notes') Notes
+        li: a(href='/clients') Clients
+        li: a(href='/archive') Archive
+      else
+        li: a(href='/') Home
+      li: a(href='/demo') Demo
+      li: a(href='/feedback') Feedback
+  .copy.right
+    p.small &copy; Ian Sinnott #{currentYear}

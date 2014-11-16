@@ -3,7 +3,7 @@
  * to only publish clients of a given user.
  */
 Meteor.publish('clients', function() {
-  return Clients.find();
+  return Clients.find({ userId: this.userId });
 });
 
 Meteor.methods({

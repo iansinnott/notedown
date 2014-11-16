@@ -2,15 +2,11 @@ Template.loginButton.events({
 
   'click .dropdown .toggle': function(e, template) {
     e.preventDefault();
+    e.stopPropagation();
     template.$('.dropdown').toggleClass('open');
   },
 
-  'click a': function(e, template) {
-    template.$('.dropdown').toggleClass('open');
-  },
-
-  'click .logout': function(e) {
-    e.preventDefault();
+  'click .logout': function() {
     Meteor.logout();
   }
 
