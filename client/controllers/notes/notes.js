@@ -1,5 +1,3 @@
-var ENTER_KEY = 13;
-
 Template.notes.helpers({
   notes: Notes.find({ archived: false }, { sort: { 'created_at': -1 } }),
   archived_notes: Notes.find({ archived: true }, { sort: { 'created_at': -1 } })
@@ -17,7 +15,7 @@ Template.notes.events({
   'keydown #new-note input': function(e, template) {
     var input = e.currentTarget;
 
-    if (e.which === ENTER_KEY && input.value.trim()) {
+    if (e.which === Utils.ENTER_KEY && input.value.trim()) {
       Meteor.call('note', input.value.trim(), Utils.logError);
       input.value = '';
     }

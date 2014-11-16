@@ -48,7 +48,7 @@ Meteor.methods({
    *
    * TODO: This isn't very secure it seems.
    */
-  update: function(note, data) {
+  updateNote: function(note, data) {
     Notes.update(note, { $set: data });
   },
 
@@ -57,7 +57,7 @@ Meteor.methods({
    * opposed to deleted. Only notes that have already been archived can be
    * deleted.
    */
-  archive: function(note) {
+  archiveNote: function(note) {
     Notes.update(note, { $set: { archived: true } });
   },
 
@@ -66,14 +66,14 @@ Meteor.methods({
    * context.
    * Todo: This could be combined with archive into a toggle method.
    */
-  restore: function(note) {
+  restoreNote: function(note) {
     Notes.update(note, { $set: { archived: false } });
   },
 
   /**
    * Remove a note.
    */
-  destroy: function(note) {
+  destroyNote: function(note) {
     Notes.remove(note);
   }
 

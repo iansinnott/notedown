@@ -1,4 +1,3 @@
-var ENTER_KEY = 13;
 Template.note.events({
 
   'dblclick .text': function(e, template) {
@@ -12,10 +11,10 @@ Template.note.events({
     var text = $input.val().trim();
       // .replace(/(<([^>]+)>)/ig,'');
 
-    if (e.which !== ENTER_KEY) return;
+    if (e.which !== Utils.ENTER_KEY) return;
 
     // Now if we've made it to here then actually update the note
-    Meteor.call('update', template.data, { note: text }, handleError);
+    Meteor.call('updateNote', template.data, { note: text }, handleError);
     template.$('.note').removeClass('editting');
   },
 
@@ -33,7 +32,7 @@ Template.note.events({
   },
 
   'click .delete': function(e, template) {
-    Meteor.call('archive', template.data);
+    Meteor.call('archiveNote', template.data);
   }
 
 });
