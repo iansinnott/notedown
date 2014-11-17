@@ -427,28 +427,59 @@ super-input()
     outline none
     appearance none
     border none
-    padding 5px
+    padding 0
+    margin 0
+    height 100%
+    background darken(gray, 5%)
+    &.delete
+      &:hover
+        background red
+        color white
+    &.restore
+    &.archive
+      &:hover
+        background blue
+        color white
+
   ul.table
     display table
     width 100%
+    border-spacing 0px
   li.cell
     display table-cell
+    vertical-align top
+    margin 0
+    padding 0
+  .button-cell
+    text-align right
+    button
+      width 26px
+      height 26px
   .note-cell
     width 80%
   .date-cell
     padding-left 10px
     p
       color darken(gray, 20%)
+      text-align right
+      padding-right 10px
   .text, .text-edit
+    font-family $font
     font-weight normal
     font-size 18px
     line-height 1.4
     border none
     padding-left 15px // Account for 5px abs pos border
 
-  // The input for editing text
+  // The textarea for editing text
   .text-edit
     outline none
+    max-width 100%
+    min-width 100%
+    width 100%
+    resize none
+  .transition
+    transition all 0.2s ease-out
   p
     margin-bottom 0
 
@@ -472,6 +503,10 @@ super-input()
 
 .note.archived
   @extend .note
+  &:before
+    note-color = darken(gray, 10%)
+    background note-color
+    border 1px solid note-color // Compensate for the parent border
 
 // }}} END Archived Notes
 
