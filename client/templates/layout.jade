@@ -1,15 +1,20 @@
 template(name='appLayout')
-  header#header
-    .container
-      .logo-small.left
-        a(href='/notes')
-          | Note
-          span.code Down
-      nav.right.login-out
-        +loginButton
-      +yield('header')
-  section#main-wrapper
-    +yield
-  footer#footer
+
+  // Necessary for sticky footer
+  #page-wrap
+    header#header
+      .container
+        .logo-small.left
+          a(href='/notes')
+            | Note
+            span.code Down
+        nav.right.login-out
+          +loginButton
+        +yield('header')
+    section#main-wrapper
+      +yield
+
+  // Sticky footer
+  footer#footer.sticky
     .container
       +footer

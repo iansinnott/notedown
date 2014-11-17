@@ -5,17 +5,39 @@
  * called. See formatDate bellow for more on this.
  */
 
-/**
- * Return a formated date based on the timestamp of the current note.
- *
- * Note: This must be called in the context of a single note ojbect so that
- * created_at is defined and an integer.
- */
-Template.registerHelper('formatDate', function() {
-  return moment(this.created_at).format('MM-DD');
-});
+var Helpers = {
 
-Template.registerHelper('userEmail', function() {
-  if (Meteor.user())
-    return Meteor.user().emails[0].address;
-});
+  /**
+   * Return a formated date based on the timestamp of the current note.
+   *
+   * Note: This must be called in the context of a single note ojbect so that
+   * created_at is defined and an integer.
+   * @return {string} current year (YYYY)
+   */
+  formatDate: function() {
+    return moment(this.created_at).format('MM-DD');
+  },
+
+  /**
+   * Return the current user's email, or nothing if they aren't logged in.
+   * Emails are used as user names in the app.
+   * @return {string|undefined}
+   */
+  userEmail: function() {
+    if (Meteor.user())
+      return Meteor.user().emails[0].address;
+  },
+
+  hasNotes: function() {
+    return Notes.find().count() > 0;
+  },
+
+  hasClients: function() {
+    return Clients.find().count() > 0;
+  }
+
+};
+
+// Register all template helpers.
+_.each(Helpers, function(func, key) { Template.registerHelper(key, func); });
+

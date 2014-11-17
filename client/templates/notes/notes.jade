@@ -3,22 +3,27 @@ head
 
 // Will be rendered in the header
 template(name='notesHeader')
-  .client-select-box
-    .client-select
-      select#select2.dib
-        option
-        option(value='1') Dude Bro
-        option(value='2') Face House
-        option(value='3') Happy Ending
-        option(value='4') Rage Gator
+  if clients
+    .client-select-box
+      .client-select
+        select#select2.dib
+          option
+          each clients
+            option(value='#{_id}')= name
       
 
 // Rendered in the main app area
 template(name='notes')
   .container
-    #new-note
-      input(type='text', placeholder='New Note...')
-      i.fa.fa-edit
+    if hasClients
+      #new-note
+        input(type='text', placeholder='New Note...')
+        i.fa.fa-edit
+    else
+      #new-note.disabled
+        input(type='text', placeholder='New Note...', disabled)
+        i.fa.fa-edit
+
 
     h1 All Notes
     ul#notes

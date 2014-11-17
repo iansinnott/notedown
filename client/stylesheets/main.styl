@@ -19,6 +19,9 @@ light-gray = #dadada
 
 *
   box-sizing border-box
+html
+body
+  height 100%
 body
   font-family $font
 
@@ -417,6 +420,17 @@ super-input()
 
 // Footer {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+footer-height = 80px
+#page-wrap
+  min-height 100%
+  margin-bottom -(footer-height)
+  &:after
+    content ''
+    display block
+    height footer-height
+#footer
+  height footer-height
 
 #footer
   padding-top 25px
