@@ -15,7 +15,7 @@ var Helpers = {
    * @return {string} current year (YYYY)
    */
   formatDate: function() {
-    return moment(this.created_at).format('MM-DD');
+    return moment(this.created_at).format('MM-DD HH:mm');
   },
 
   /**

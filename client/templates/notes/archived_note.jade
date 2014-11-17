@@ -1,7 +1,7 @@
 template(name='archivedNote')
   .note.archived
     ul.table
-      li.cell.text= note
-      li.cell.date= formatDate
+      li.cell.note-cell: p.text= note
+      li.cell.date-cell: p.date= formatDate
       li.cell: button.restore(href='#'): i.fa.fa-level-up
       li.cell: button.delete(href='#'): i.fa.fa-times
