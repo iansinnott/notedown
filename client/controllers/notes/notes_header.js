@@ -12,9 +12,13 @@ Template.notesHeader.events({
 
 Template.notesHeader.rendered = function() {
   var $select = this.$('#select2');
+
+  // Initialize select2
   $select.select2({
     placeholder: 'Select a client...',
     allowClear: true
   });
+
+  // Set the value to the currently selected client if there is one.
   $select.select2('val', Session.get('currentClient') || '');
 };

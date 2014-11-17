@@ -21,4 +21,4 @@ _A note-taking app..._
     });
     ```
 
-    The bullet point is, reactivity _will not function_ unless the cursor is wrapped in a function. If it is simply defined on the object we won't get reactivity. 
+    The bullet point is, reactivity _will not function_ unless the reactive data source (in this case the session & the mongo cursor) is wrapped in a function. If it is simply defined on the object we won't get reactivity. 
