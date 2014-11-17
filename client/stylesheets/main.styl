@@ -226,8 +226,25 @@ h1.super
   &:hover
     text-decoration none
     background darken(gray, 20%)
+  &.small
+    padding 10px 15px
+
+.btn-o
+  @extends .btn
+  background transparent
+  border 1px solid darken(gray, 10%)
 
 .btn-blue
+  @extends .btn
+  color white
+  background blue
+  &:hover
+    background darken(blue, 10%)
+.btn-blue-o
+  @extends .btn-o
+  border-color blue
+  color blue
+.btn-green
   @extends .btn
   color white
   background green
@@ -507,10 +524,35 @@ input[type=submit]
   border 1px solid blue
   color blue
   margin-bottom 10px
+  h4
+    font-weight bold
+    margin-bottom 10px
+    font-size 20px
+  p
+    font-size 16px
+    margin-bottom 10px
+  i:first-child
+    padding-left 0
+    padding-right 5px
+  .controls
+    a
+      display inline-block
+    a:first-child
+      margin-right 10px
+    .btn-blue-o
+      border none
+      &:hover
+        background transparent
+        color red
+
 .alert-warning
 .alert-error
 .alert-success
   @extend .alert
+
+.alert-info
+  padding 10px
+  border-radius 3px
 
 .alert-warning
   background lighten(yellow, 85%)

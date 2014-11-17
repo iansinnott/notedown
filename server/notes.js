@@ -15,18 +15,17 @@ var TOKENS = {
   '?': 'question'
 };
 
-// Temp: Refactor this
-// Todo
-function selectedClient() {
-  return false;
-}
-
 Meteor.methods({
 
   /**
-   * Create a new Note
+   * Create a new Note. Notes are attached to clients, or the current user. If
+   * no client is selected (especially when the user has yet to create any
+   * clients) any new notes will assign the current users ID as the client id.
+   *
+   * Note: Client ID has to be passed from the client because the server has no
+   * access to Session.
    */
-  note: function(text) {
+  note: function(text, clientId) {
     if (!text)
       throw new Meteor.Error('no-text', 'No text provided.');
 
@@ -37,7 +36,7 @@ Meteor.methods({
       note: (type === 'note') ? text : text.slice(1),
       userId: Meteor.userId(),
       archived: false,
-      client: selectedClient() || null,
+      client: clientId || Meteor.userId(), // Default to current user
       created_at: Date.now(),
       updated_at: Date.now()
     });

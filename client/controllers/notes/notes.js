@@ -1,5 +1,8 @@
 Template.notes.helpers({
-  notes: Notes.find({ archived: false }, { sort: { 'created_at': -1 } })
+  notes: Notes.find({
+           archived: false,
+           client: Session.get('currentClient') || Meteor.userId()
+         }, { sort: { 'created_at': -1 } })
 });
 
 Template.notes.events({
@@ -12,11 +15,22 @@ Template.notes.events({
   },
 
   'keydown #new-note input': function(e, template) {
-    var input = e.currentTarget;
+    var input    = e.currentTarget,
+        text     = input.value.trim(),
+        clientId = Session.get('currentClient');
 
-    if (e.which === Utils.ENTER_KEY && input.value.trim()) {
-      Meteor.call('note', input.value.trim(), Utils.logError);
+    if (e.which === Utils.ENTER_KEY && text) {
+      Meteor.call('note', text, clientId, Utils.logError);
       input.value = '';
     }
+  },
+
+  /**
+   * TODO: I need to save the fact that this has been shown already. Save this
+   * functionality for until I figure out how I want to write user prefs.
+   */
+  'click .close': function(e, template) {
+    e.preventDefault();
+    template.$('.alert-info').slideUp();
   }
 });

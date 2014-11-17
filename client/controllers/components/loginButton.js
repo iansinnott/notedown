@@ -6,8 +6,13 @@ Template.loginButton.events({
     template.$('.dropdown').toggleClass('open');
   },
 
+  /**
+   * Logout and unset the current client.
+   */
   'click .logout': function() {
-    Meteor.logout();
+    Meteor.logout(function() {
+      Session.set('currentClient', null);
+    });
   }
 
 });

@@ -3,11 +3,12 @@ head
 
 // Will be rendered in the header
 template(name='notesHeader')
-  if clients
+  if hasClients
     .client-select-box
       .client-select
         select#select2.dib
           option
+          option(value='#{userId}') Me
           each clients
             option(value='#{_id}')= name
       
@@ -20,9 +21,21 @@ template(name='notes')
         input(type='text', placeholder='New Note...')
         i.fa.fa-edit
     else
-      #new-note.disabled
-        input(type='text', placeholder='New Note...', disabled)
+      #new-note
+        input(type='text', placeholder='New Note...')
         i.fa.fa-edit
+
+      .alert-info
+        h4 You don't have any clients yet
+        p Any notes you create will be personal notes. If you'd like to add 
+          | notes for someone else, add a new client:
+        .controls
+          a.btn-blue.small(href='/clients#new')
+            i.fa.fa-plus
+            | Add Client
+          a.btn-blue-o.small.close(href='#')
+            i.fa.fa-times
+            | Close this message 
 
 
     h1 All Notes
