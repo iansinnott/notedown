@@ -32,6 +32,14 @@ var Helpers = {
     return Notes.find().count() > 0;
   },
 
+  hasQuestions: function() {
+    return Notes.find({ type: 'question' }).count() > 0;
+  },
+
+  hasActions: function() {
+    return Notes.find({ type: 'action' }).count() > 0;
+  },
+
   hasClients: function() {
     return Clients.find().count() > 0;
   }

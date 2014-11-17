@@ -6,15 +6,6 @@ Meteor.publish('notes', function() {
   return Notes.find({ userId: this.userId });
 });
 
-
-/**
- * A dictionary of all tokens with special meaning in Notedown
- */
-var TOKENS = {
-  '!': 'action',
-  '?': 'question'
-};
-
 Meteor.methods({
 
   /**
@@ -29,7 +20,7 @@ Meteor.methods({
     if (!text)
       throw new Meteor.Error('no-text', 'No text provided.');
 
-    var type = TOKENS[text[0]] || 'note';
+    var type = Utils.TOKENS[text[0]] || 'note';
 
     return Notes.insert({
       type: type,

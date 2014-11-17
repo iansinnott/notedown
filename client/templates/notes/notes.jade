@@ -35,6 +35,18 @@ template(name='notes')
             | Close this message 
 
 
+    h1 Power Notes
+    ul#power-notes
+      if hasActions
+        h2 Actions
+        each actions
+          +powerNote
+
+      if hasQuestions
+        h2 Questions
+        each questions
+          +powerNote
+
     h1 All Notes
     ul#notes
       if notes

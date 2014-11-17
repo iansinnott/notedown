@@ -19,6 +19,22 @@ Template.notes.helpers({
              archived: false,
              client: Session.get('currentClient') || Meteor.userId()
            }, { sort: { 'created_at': -1 } });
+  },
+
+  actions: function() {
+    return Notes.find({
+             archived: false,
+             type: 'action',
+             client: Session.get('currentClient') || Meteor.userId()
+           }, { sort: { 'created_at': -1 } });
+  },
+
+  questions: function() {
+    return Notes.find({
+             archived: false,
+             type: 'question',
+             client: Session.get('currentClient') || Meteor.userId()
+           }, { sort: { 'created_at': -1 } });
   }
 });
 

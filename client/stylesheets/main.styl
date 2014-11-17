@@ -409,20 +409,10 @@ super-input()
 .hidden
   display none
 
-.note
+note-base()
   border 1px solid gray
   margin-bottom 5px
   position relative
-  &:before
-    note-color = tint(blue, 70%)
-    content ''
-    display block
-    absolute left -1px top -1px
-    height 100%
-    width 5px
-    background note-color
-    border 1px solid note-color // Compensate for the parent border
-
   button
     outline none
     appearance none
@@ -463,13 +453,6 @@ super-input()
       color darken(gray, 20%)
       text-align right
       padding-right 10px
-  .text, .text-edit
-    font-family $font
-    font-weight normal
-    font-size 18px
-    line-height 1.4
-    border none
-    padding-left 15px // Account for 5px abs pos border
 
   // The textarea for editing text
   .text-edit
@@ -496,6 +479,26 @@ super-input()
   .text
     display none
 
+.note
+  note-base()
+  &:before
+    note-color = tint(blue, 70%)
+    content ''
+    display block
+    absolute left -1px top -1px
+    height 100%
+    width 5px
+    background note-color
+    border 1px solid note-color // Compensate for the parent border
+  .text, .text-edit
+    font-family $font
+    font-weight normal
+    font-size 18px
+    line-height 1.4
+    border none
+    padding-left 15px // Account for 5px abs pos border
+
+
 // }}} END Notes
 
 // Archived Notes {{{
@@ -509,6 +512,40 @@ super-input()
     border 1px solid note-color // Compensate for the parent border
 
 // }}} END Archived Notes
+
+// Power Notes {{{
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.power-note
+  note-base()
+  &.action
+    .token-cell
+      background tint(orange, 60%)
+      p
+        color shade(orange, 20%)
+  &.question
+    .token-cell
+      background tint(blue, 60%)
+      p
+        color shade(blue, 30%)
+  .token-cell
+    width 52px
+    p
+      line-height 52px
+      text-align center
+      color white
+      font-size 32px
+  li.note-cell
+    padding 15px
+    width 70%
+  .text, .text-edit
+    font-family $font
+    font-weight normal
+    font-size 18px
+    line-height 1.4
+    border none
+
+// }}} END Power Notes
 
 // Footer {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
