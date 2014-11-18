@@ -3,6 +3,10 @@
  */
 Template.powerNote.events(NoteEvents);
 
+/**
+ * TODO: This is the same for power notes as well as archived power notes. Could
+ * stand to be dryed out.
+ */
 Template.powerNote.helpers({
 
   /**
@@ -20,13 +24,15 @@ Template.powerNote.helpers({
 // ----
 // TODO: Write the events so that notes are editable and archivable
 // TODO: Show actions and questions in the archive
+// TODO: Make sure they are editable and deletable in the archives (update, not
+//       necessary. Forgot that archived notes aren't editable)
+// TODO: Add routes for various client notes. Currently refreshing after
+//       selecting a client will reset to 'Me'. (Might be buggy...)
 
 // YET TODO
 // --------
-// TODO: Make sure they are editable and deletable in the archives
-// TODO: Add routes for various client notes. Currently refreshing after
-//       selecting a client will reset to 'Me'
 // TODO: Improve site styling to make it more like the inital stenotyper
+// TODO: Style /clients page
 // TODO: Reset database and test a bit
 // TODO: Initial live test. Push to dev server.
 
