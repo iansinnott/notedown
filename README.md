@@ -32,6 +32,7 @@ _A note-taking app..._
 These are all features I'd like to implement, but they are contingent on my own time and how much use I (or anyone else) actually gets out of the app initially.
 
 * Shift enter to add a new line instead of save
+* The main note and client entry input should be a textarea that resizes itself
 * Markdown support (GHFM)
 * Settings Page
   * Password Changing

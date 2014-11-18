@@ -65,3 +65,7 @@ ArchivedNoteEvents = {
   }
 
 };
+
+NoteRendered = function() {
+  this.$('.text-edit').autosize({ append: false });
+};

@@ -10,36 +10,34 @@ template(name='notes')
     #new-note
       input(type='text', placeholder='New Note...')
       i.fa.fa-edit
-    if hasClients
-      if showAlert
-        .alert-info.mb
-          h4 You don't have any clients yet
-          p Any notes you create will be personal notes. If you'd like to add 
-            | notes for someone else, add a new client:
-          .controls
-            a.btn-blue.small.close-redirect(href='/clients#new')
-              i.fa.fa-plus
-              | Add Client
-            a.btn-blue-o.small.close(href='#')
-              i.fa.fa-times
-              | Close this message 
+    if showAlert
+      .alert-info.mb.mt.no-clients
+        h4 You don't have any clients yet
+        p Any notes you create will be personal notes. If you'd like to add 
+          | notes for someone else, add a new client:
+        .controls
+          a.btn-blue.small.close-redirect(href='/clients#new')
+            i.fa.fa-plus
+            | Add Client
+          a.btn-blue-o.small.close(href='#')
+            i.fa.fa-times
+            | Close this message 
 
     #note-controls
       if hasClients
         +clientSelect
 
     if hasPowerNotes
-      h1 bro face
       ul#power-notes
         if hasActions
           #actions
             each actions
-              +archivedPowerNote
+              +powerNote
 
         if hasQuestions
           #questions
             each questions
-              +archivedPowerNote
+              +powerNote
 
     ul#notes
       if hasNotes

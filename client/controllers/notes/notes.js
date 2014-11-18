@@ -53,11 +53,3 @@ Template.notes.events({
   }
 });
 
-/**
- * Setup autoresize for all textareas. They are hidden initially.
- */
-Template.notes.rendered = function() {
-  this.$('textarea.text-edit').autosize({
-    append: false // Don't append a newline
-  });
-};

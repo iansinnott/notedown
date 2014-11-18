@@ -4,3 +4,4 @@
  */
 Template.note.events(NoteEvents);
 
+Template.note.rendered = NoteRendered;
