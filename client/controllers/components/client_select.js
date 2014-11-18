@@ -1,9 +1,9 @@
-Template.notesHeader.helpers({
+Template.clientSelect.helpers({
   userId: Meteor.userId(),
   clients: Clients.find({ archived: false }, { sort: { 'name': 1 } })
 });
 
-Template.notesHeader.events({
+Template.clientSelect.events({
 
   /**
    * Whenever the select is changed reroute to a client-specific route. This way
@@ -24,13 +24,12 @@ Template.notesHeader.events({
   }
 });
 
-Template.notesHeader.rendered = function() {
+Template.clientSelect.rendered = function() {
   var $select = this.$('#select2');
 
   // Initialize select2
   $select.select2({
-    placeholder: 'Select a client...',
-    allowClear: true
+    placeholder: 'Select a client...'
   });
 
   // Set the value to the currently selected client if there is one.

@@ -1,27 +1,16 @@
 // Will be rendered in the header
 template(name='notesHeader')
-  if hasClients
-    .client-select-box
-      .client-select
-        select#select2.dib
-          option
-          option(value='#{userId}') Me
-          each clients
-            option(value='#{_id}')= name
+  .page-title
+    h2.header-center Notes
       
 
 // Rendered in the main app area
 template(name='notes')
   .container
+    #new-note
+      input(type='text', placeholder='New Note...')
+      i.fa.fa-edit
     if hasClients
-      #new-note
-        input(type='text', placeholder='New Note...')
-        i.fa.fa-edit
-    else
-      #new-note
-        input(type='text', placeholder='New Note...')
-        i.fa.fa-edit
-
       if showAlert
         .alert-info.mb
           h4 You don't have any clients yet
@@ -35,17 +24,22 @@ template(name='notes')
               i.fa.fa-times
               | Close this message 
 
+    #note-controls
+      if hasClients
+        +clientSelect
 
-    ul#power-notes
-      if hasActions
-        #actions
-          each actions
-            +powerNote
+    if hasPowerNotes
+      h1 bro face
+      ul#power-notes
+        if hasActions
+          #actions
+            each actions
+              +archivedPowerNote
 
-      if hasQuestions
-        #questions
-          each questions
-            +powerNote
+        if hasQuestions
+          #questions
+            each questions
+              +archivedPowerNote
 
     ul#notes
       if hasNotes
@@ -58,5 +52,7 @@ template(name='notes')
             if hasClients
               | for
               span.hl #{currentClient}.
+            else
+              | .
           p Add some using the input above.
 

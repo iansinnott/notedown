@@ -28,10 +28,14 @@ var Helpers = {
   },
 
   /**
-   * Return the name of the current client to the template.
+   * Return the name of the current client to the template, or if the 'current
+   * client' is the current user then return 'yourself'.
+   * @return {string}
    */
   currentClient: function() {
-    return Clients.findOne(Session.get('currentClient')).name;
+    var id = Session.get('currentClient');
+    if (id === Meteor.userId()) return 'yourself';
+    return Clients.findOne(id).name;
   },
 
   /**
@@ -42,6 +46,14 @@ var Helpers = {
   hasArchive: _hasRecords(Notes, { archived: true }),
   hasQuestions: _hasRecords(Notes, { type: 'question' }),
   hasActions: _hasRecords(Notes, { type: 'action' }),
+  hasPowerNotes: _hasRecords(Notes, {
+    type: { $in: _.values(Utils.TOKENS) },
+    archived: false
+  }),
+  hasPowerNotesArchive: _hasRecords(Notes, {
+    type: { $in: _.values(Utils.TOKENS) },
+    archived: true
+  }),
   hasClients: _hasRecords(Clients, { archived: false }),
   hasClientsArchive: _hasRecords(Clients, { archived: true })
 

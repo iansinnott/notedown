@@ -148,13 +148,17 @@ li
   position relative
   height 37px
   margin 0 auto
-  text-align center
+  text-align right
+  &>span
+    display inline-block
   select
     text-align left
   .select2-container
-    margin-top 11px
+    margin-top 0px
     width 200px
     text-align left
+    .select2-choice
+      line-height 25px
 
 .dib
   display inline-block
@@ -284,6 +288,9 @@ h1.super
 
 // Header {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.page-title
+  text-align center
 
 .archiveByClient
   align(vertical)
@@ -426,9 +433,15 @@ super-input()
 // Notes {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+#note-controls
+  .control-title
+    font-weight bold
+    color darken(gray, 50%)
+    padding-right 5px
 
 .no-records
   text-align center
+  margin-top 50px
   h4
     font-size 24px
     font-weight 500
@@ -542,6 +555,8 @@ note-base()
     note-color = darken(gray, 10%)
     background note-color
     border 1px solid note-color // Compensate for the parent border
+  .date-cell
+    padding-left 0
 
 // }}} END Archived Notes
 
@@ -614,7 +629,13 @@ outer-border(color)
 
 .power-note.archived
   @extend .power-note
-
+  &.action
+  &.question
+    .token-cell
+      background darken(gray, 5%)
+      border-right 1px solid darken(gray, 20%)
+      p
+        color lighten(black, 50%)
 
 // }}} END Power Notes
 

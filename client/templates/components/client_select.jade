@@ -1,0 +1,9 @@
+template(name='clientSelect')
+  .client-select-box
+    .client-select
+      span.control-title Notes For
+      select#select2.dib
+        option
+        option(value='#{userId}') Me
+        each clients
+          option(value='#{_id}')= name

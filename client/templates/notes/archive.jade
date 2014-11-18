@@ -1,17 +1,23 @@
+template(name='archiveHeader')
+  .page-title
+    h2.header-center Archived Notes
+
 template(name='archive')
   .container
-    h1 Archived Notes
+    #note-controls
+      if hasClients
+        +clientSelect
+    if hasPowerNotesArchive
+      ul#power-notes
+        if hasActions
+          #actions
+            each actions
+              +archivedPowerNote
 
-    ul#power-notes
-      if hasActions
-        #actions
-          each actions
-            +archivedPowerNote
-
-      if hasQuestions
-        #questions
-          each questions
-            +archivedPowerNote
+        if hasQuestions
+          #questions
+            each questions
+              +archivedPowerNote
 
     #notes
       if hasArchive
@@ -19,9 +25,15 @@ template(name='archive')
           +archivedNote
       else
         .no-records
-          h4 You don't have any archived notes yet.
+          h4 
+            | You don't have any archived notes
+            if hasClients
+              | for
+              span.hl #{currentClient}.
+            else
+              | .
           p
             | Notes can be archived from by clicking the
             i.fa.fa-archive
-            | icon.
+            | icon on any note.
 
