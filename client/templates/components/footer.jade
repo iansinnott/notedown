@@ -1,6 +1,9 @@
 template(name='footer')
   nav.footer-nav
     ul
+      // TODO: I could do better than simply linking ot /notes|archive Would be
+      //       better to go to the archives or notes for the currently selected
+      //       client with ID intact in the URL
       if currentUser
         li: a(href='/notes') Notes
         li: a(href='/clients') Clients

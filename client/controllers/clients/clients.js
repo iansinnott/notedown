@@ -1,17 +1,17 @@
 // Client List
 
 Template.clients.helpers({
-  clients: Clients.find({ archived: false }, { sort: { 'created_at': -1 } }),
-  archived_clients: Clients.find({ archived: true }, { sort: { 'created_at': -1 } })
+  clients: Clients.find({ archived: false }, { sort: { 'name': 1 } }),
+  archived_clients: Clients.find({ archived: true }, { sort: { 'name': 1 } })
 });
 
 Template.clients.events({
-  'focus #new-note input': function(e, template) {
-    template.$('#new-note').addClass('focus');
+  'focus #new-client input': function(e, template) {
+    template.$('#new-client').addClass('focus');
   },
 
-  'blur #new-note input': function(e, template) {
-    template.$('#new-note').removeClass('focus');
+  'blur #new-client input': function(e, template) {
+    template.$('#new-client').removeClass('focus');
   },
 
   'keydown #new-client input': function(e, template) {
@@ -23,3 +23,12 @@ Template.clients.events({
     }
   }
 });
+
+/**
+ * Setup autoresize for all textareas. They are hidden initially.
+ */
+Template.clients.rendered = function() {
+  this.$('textarea.text-edit').autosize({
+    append: false // Don't append a newline
+  });
+};

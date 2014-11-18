@@ -7,9 +7,8 @@ template(name='clients')
       input(type='text', placeholder='New Client...')
       i.fa.fa-users
 
-    h1 All Clients
-    ul#clients
-      if clients
+    #clients
+      if hasClients
         each clients
           +client
       else
@@ -17,10 +16,10 @@ template(name='clients')
           h4 You don't have any clients yet.
           p Add one using the input above.
 
-    h1 Archives
-    ul#archives
-      if archived_clients
+    #client-archives
+      if hasClientsArchive
         each archived_clients
           +archivedClient
       else
-        li Archived clients will appear here
+        li.no-records
+          p Archived clients will appear here

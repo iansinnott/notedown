@@ -1,8 +1,10 @@
 template(name='client')
   .client
     ul.table
-      li.cell
+      li.cell.token-cell: p: i.fa.fa-user
+      li.cell.text-cell
         p.text= name
-        input.text-edit.hidden(type='text', value='#{name}')
-      li.cell: p.date= formatDate
-      li.cell: button.delete(href='#'): i.fa.fa-archive
+        textarea.text-edit.hidden(rows='1')= name
+      li.cell.date-cell: p.date= formatDate
+      li.cell.button-cell: button.view(href='#'): i.fa.fa-eye
+      li.cell.button-cell: button.archive(href='#'): i.fa.fa-archive

@@ -1,5 +1,11 @@
+// Note: Code sections in this file are meant for folding, specifically with
+// Vim. If you're not using Vim it's likely that thre brackets seem a bit much,
+// but beleive me, it works great in Vim.
+
+// Reset
 global-reset()
 
+// Bring in the Jeet!
 @require 'jeet'
 
 // Variables {{{
@@ -410,6 +416,16 @@ super-input()
 .hidden
   display none
 
+ul.table
+  display table
+  width 100%
+  border-spacing 0px
+li.cell
+  display table-cell
+  vertical-align top
+  margin 0
+  padding 0
+
 note-base()
   border 1px solid gray
   margin-bottom 5px
@@ -426,21 +442,13 @@ note-base()
       &:hover
         background red
         color white
+    &.view
     &.restore
     &.archive
       &:hover
         background blue
         color white
 
-  ul.table
-    display table
-    width 100%
-    border-spacing 0px
-  li.cell
-    display table-cell
-    vertical-align top
-    margin 0
-    padding 0
   .button-cell
     text-align right
     button
@@ -583,6 +591,57 @@ outer-border(color)
 
 
 // }}} END Power Notes
+
+// Clients {{{
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#clients
+  margin-bottom 50px
+
+.client
+  @extend .power-note
+  border 1px solid darken(gray, 20%)
+  li.name, textarea
+    padding 15px
+    width 70%
+  .text
+    padding 10px
+    padding-left 15px
+  .token-cell
+    width 45px
+    p
+      line-height 45px
+      text-align center
+      color shade(gray, 10%)
+      font-size 30px
+  .button-cell
+    .view
+      border-left 1px solid darken(gray, 20%)
+      border-bottom 1px solid darken(gray, 20%)
+    .archive
+      border-bottom 1px solid darken(gray, 20%)
+      border-left none
+
+// TODO: This is duplicated under .note.editting
+.client.editting
+  .text-edit
+    display block
+  .note-cell
+    box-shadow inset 0px 0px 2px darken(white, 20%)
+    input
+      width 100%
+      display inline-block
+      background transparent
+  .text
+    display none
+
+.client.archived
+  border 1px solid darken(gray, 20%)
+  .text
+    cursor default
+    color darken(gray, 20%)
+
+// }}} END Clients
 
 // Footer {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

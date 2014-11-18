@@ -37,4 +37,5 @@ These are all features I'd like to implement, but they are contingent on my own 
 * Pagination on archives page
 * Guided tour
 * Custom 'types' (choose a token, pick a color, then all notes prefixed with #{token} are set to that type)
+* Relative dates for notes and clients
 

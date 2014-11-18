@@ -23,7 +23,7 @@ Meteor.methods({
   },
 
   updateClient: function(client, data) {
-    Notes.update(client, { $set: data });
+    Clients.update(client, { $set: data });
   },
 
   archiveClient: function(client) {
