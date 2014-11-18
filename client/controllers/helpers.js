@@ -28,6 +28,13 @@ var Helpers = {
   },
 
   /**
+   * Return the name of the current client to the template.
+   */
+  currentClient: function() {
+    return Clients.findOne(Session.get('currentClient')).name;
+  },
+
+  /**
    * The following check the existence of various records in the DB given
    * creteria (second arg). See _hasRecords bellow for more info.
    */

@@ -149,7 +149,7 @@ input[type=submit]
   select
     text-align left
   .select2-container
-    margin-top 6px
+    margin-top 11px
     width 200px
     text-align left
 
@@ -169,17 +169,18 @@ input[type=submit]
   z-index 2
 
 .logo-small
-  font-size 22px
-  font-weight bold
-  line-height 37px // Happens to be the hight of the sign in button
   a
+    display inline-block
+    font-weight bold
+    line-height 46px // Happens to be the hight of the sign in button
+    font-size 28px
     text-decoration none
     color black
     &:hover
       text-decoration none
   .code
-    font-size 28px
-    margin-left -5px
+    font-size 37px
+    margin-left -8px
     font-weight normal
 
 #banner
@@ -280,6 +281,10 @@ h1.super
 
 // Header {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.header-center
+  line-height 46px
+  margin 0
 
 #header.landing
   background #fafafa
@@ -413,6 +418,16 @@ super-input()
 // Notes {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+
+.no-records
+  text-align center
+  h4
+    font-size 24px
+    font-weight 500
+    margin-bottom 20px
+  .hl
+    background tint(yellow, 70%)
+    padding 0 5px
 .hidden
   display none
 

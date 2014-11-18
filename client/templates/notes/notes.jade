@@ -53,6 +53,9 @@ template(name='notes')
           +note
       else
         li.no-records
-          h4 You don't have any notes yet.
+          h4 
+            | You don't have any notes for 
+            span.hl= currentClient
+            | yet.
           p Add one using the input above.
 
