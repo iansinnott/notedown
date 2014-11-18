@@ -1,0 +1,11 @@
+template(name='archivedPowerNote')
+  .note.power-note.archived(class='#{type}')
+    ul.table
+      li.cell.token-cell
+        p= token
+      li.cell.note-cell
+        p.text= note
+        textarea.text-edit.hidden(rows='1')= note
+      li.cell.date-cell: p.date= formatDate
+      li.cell.button-cell: button.restore(href='#'): i.fa.fa-level-up
+      li.cell.button-cell: button.delete(href='#'): i.fa.fa-times

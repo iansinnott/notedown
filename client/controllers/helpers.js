@@ -24,16 +24,19 @@ var Helpers = {
    * @return {string|undefined}
    */
   userEmail: function() {
-    if (Meteor.user())
-      return Meteor.user().emails[0].address;
+    if (Meteor.user()) return Meteor.user().emails[0].address;
   },
 
-  hasNotes: _has(Notes, { archived: false }),
-  hasArchive: _has(Notes, { archived: true }),
-  hasQuestions: _has(Notes, { type: 'question' }),
-  hasActions: _has(Notes, { type: 'action' }),
-  hasClients: _has(Clients, { archived: false }),
-  hasClientsArchive: _has(Clients, { archived: true })
+  /**
+   * The following check the existence of various records in the DB given
+   * creteria (second arg). See _hasRecords bellow for more info.
+   */
+  hasNotes: _hasRecords(Notes, { archived: false }),
+  hasArchive: _hasRecords(Notes, { archived: true }),
+  hasQuestions: _hasRecords(Notes, { type: 'question' }),
+  hasActions: _hasRecords(Notes, { type: 'action' }),
+  hasClients: _hasRecords(Clients, { archived: false }),
+  hasClientsArchive: _hasRecords(Clients, { archived: true })
 
 };
 
@@ -41,8 +44,16 @@ var Helpers = {
  * A helper function for determining the existence of records in a collection
  * reactively and based on certain criteria. This is simply a helper to dry out
  * the code that I initially had in place.
+ *
+ * Note that in the case of the Notes collection we also want to make sure we're
+ * only checking for records that apply to the currently selected client.
+ *
+ * TODO: This might fit better under Utils. If it becomes necessary elsewhere in
+ * the app then refactor.
+ *
+ * @return {function}
  */
-function _has(collection, criteria) {
+function _hasRecords(collection, criteria) {
   return function() {
     if (collection === Notes)
       _.extend(criteria, { client: Session.get('currentClient') });

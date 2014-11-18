@@ -6,12 +6,12 @@ template(name='archive')
       if hasActions
         #actions
           each actions
-            +powerNote
+            +archivedPowerNote
 
       if hasQuestions
         #questions
           each questions
-            +powerNote
+            +archivedPowerNote
 
     ul#notes
       if hasArchive

@@ -19,11 +19,13 @@ Template.powerNote.helpers({
 // DONE
 // ----
 // TODO: Write the events so that notes are editable and archivable
+// TODO: Show actions and questions in the archive
 
 // YET TODO
 // --------
-// TODO: Show actions and questions in the archive
 // TODO: Make sure they are editable and deletable in the archives
+// TODO: Add routes for various client notes. Currently refreshing after
+//       selecting a client will reset to 'Me'
 // TODO: Improve site styling to make it more like the inital stenotyper
 // TODO: Reset database and test a bit
 // TODO: Initial live test. Push to dev server.

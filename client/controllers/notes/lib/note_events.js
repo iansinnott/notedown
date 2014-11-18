@@ -31,7 +31,7 @@ NoteEvents = {
     if (e.which !== Utils.ENTER_KEY) return;
 
     // Now if we've made it to here then actually update the note
-    Meteor.call('updateNote', template.data, { note: text }, handleError);
+    Meteor.call('updateNote', template.data, { note: text }, Utils.handleError);
     template.$('.note').removeClass('editting transition');
   },
 
@@ -53,10 +53,15 @@ NoteEvents = {
 
 };
 
-/**
- * A simple error handler for debugging.
- */
-function handleError(err) {
-  if (!err) return;
-  console.error(err.reason);
-}
+ArchivedNoteEvents = {
+
+  'click .restore': function(e, view) {
+    Meteor.call('restoreNote', view.data);
+  },
+
+  'click .delete': function(e, view) {
+    if (!confirm("Are you sure? This can't be undone.")) return false;
+    Meteor.call('destroyNote', view.data);
+  }
+
+};

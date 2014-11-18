@@ -568,10 +568,18 @@ outer-border(color)
     font-size 18px
     line-height 1.4
     border none
+    background lighten(gray, 30%)
   .button-cell
-    button
+    width 26px
+    .restore
       border-left 1px solid darken(gray, 20%)
       border-bottom 1px solid darken(gray, 20%)
+    .delete
+      border-bottom 1px solid darken(gray, 20%)
+
+.power-note.archived
+  @extend .power-note
+
 
 // }}} END Power Notes
 
