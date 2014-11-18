@@ -35,21 +35,20 @@ template(name='notes')
             | Close this message 
 
 
-    h1 Power Notes
     ul#power-notes
       if hasActions
-        h2 Actions
-        each actions
-          +powerNote
+        #actions
+          each actions
+            +powerNote
 
       if hasQuestions
-        h2 Questions
-        each questions
-          +powerNote
+        #questions
+          each questions
+            +powerNote
 
-    h1 All Notes
     ul#notes
-      if notes
+      if hasNotes
+        h1 boosh
         each notes
           +note
       else

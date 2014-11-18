@@ -28,23 +28,27 @@ var Helpers = {
       return Meteor.user().emails[0].address;
   },
 
-  hasNotes: function() {
-    return Notes.find().count() > 0;
-  },
-
-  hasQuestions: function() {
-    return Notes.find({ type: 'question' }).count() > 0;
-  },
-
-  hasActions: function() {
-    return Notes.find({ type: 'action' }).count() > 0;
-  },
-
-  hasClients: function() {
-    return Clients.find().count() > 0;
-  }
+  hasNotes: _has(Notes, { archived: false }),
+  hasArchive: _has(Notes, { archived: true }),
+  hasQuestions: _has(Notes, { type: 'question' }),
+  hasActions: _has(Notes, { type: 'action' }),
+  hasClients: _has(Clients, { archived: false }),
+  hasClientsArchive: _has(Clients, { archived: true })
 
 };
+
+/**
+ * A helper function for determining the existence of records in a collection
+ * reactively and based on certain criteria. This is simply a helper to dry out
+ * the code that I initially had in place.
+ */
+function _has(collection, criteria) {
+  return function() {
+    if (collection === Notes)
+      _.extend(criteria, { client: Session.get('currentClient') });
+    return collection.find(criteria).count() > 0;
+  };
+}
 
 // Register all template helpers.
 _.each(Helpers, function(func, key) { Template.registerHelper(key, func); });

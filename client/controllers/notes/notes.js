@@ -1,41 +1,7 @@
 Template.notes.helpers({
-
-  /**
-   * All notes belonging to the current user are loaded into minimongo. Here we
-   * define the set of notes that should be visible on the /notes page at any
-   * point in time. Notes to display match the following criteria: Not archived,
-   * are linked to the current client.
-   *
-   * The current client can be set a number of ways throughout the app, but
-   * since Session is a reactive data source we don't have to worry about that.
-   * Whenever the current client changes the view will re-render.
-   *
-   * Note: The cursor must be defined and returned from within a function
-   * instead fo directly on the helpers object. Otherwise reactivity will not
-   * function.
-   */
-  notes: function() {
-    return Notes.find({
-             archived: false,
-             client: Session.get('currentClient') || Meteor.userId()
-           }, { sort: { 'created_at': -1 } });
-  },
-
-  actions: function() {
-    return Notes.find({
-             archived: false,
-             type: 'action',
-             client: Session.get('currentClient') || Meteor.userId()
-           }, { sort: { 'created_at': -1 } });
-  },
-
-  questions: function() {
-    return Notes.find({
-             archived: false,
-             type: 'question',
-             client: Session.get('currentClient') || Meteor.userId()
-           }, { sort: { 'created_at': -1 } });
-  }
+  notes: Utils.getCursorFor('note'),
+  actions: Utils.getCursorFor('action'),
+  questions: Utils.getCursorFor('question')
 });
 
 Template.notes.events({

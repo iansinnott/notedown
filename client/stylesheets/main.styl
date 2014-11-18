@@ -398,6 +398,7 @@ super-input()
   super-input()
 
 #new-note
+  margin-bottom 50px
   i
     font-size 30px
 
@@ -516,16 +517,39 @@ note-base()
 // Power Notes {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+#power-notes
+  margin-bottom 50px
+
+outer-border(color)
+  position relative
+  &:before
+    content ''
+    absolute left -10px top 0
+    height 100%
+    width 5px
+    background color
+#actions
+  outer-border(shade(orange, 20%))
+  margin-bottom 25px
+#questions
+  outer-border(shade(blue, 30%))
+
 .power-note
   note-base()
+  background lighten(gray, 30%)
+  border 1px solid darken(gray, 20%)
+  &:before
+    display none
   &.action
     .token-cell
       background tint(orange, 60%)
+      border-right 1px solid shade(orange, 20%)
       p
         color shade(orange, 20%)
   &.question
     .token-cell
       background tint(blue, 60%)
+      border-right 1px solid shade(blue, 30%)
       p
         color shade(blue, 30%)
   .token-cell
@@ -544,6 +568,10 @@ note-base()
     font-size 18px
     line-height 1.4
     border none
+  .button-cell
+    button
+      border-left 1px solid darken(gray, 20%)
+      border-bottom 1px solid darken(gray, 20%)
 
 // }}} END Power Notes
 

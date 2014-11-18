@@ -1,8 +1,20 @@
 template(name='archive')
   .container
     h1 Archived Notes
+
+    ul#power-notes
+      if hasActions
+        #actions
+          each actions
+            +powerNote
+
+      if hasQuestions
+        #questions
+          each questions
+            +powerNote
+
     ul#notes
-      if archived_notes
+      if hasArchive
         each archived_notes
           +archivedNote
       else
