@@ -134,6 +134,9 @@ button
 input[type=submit]
   cursor pointer
 
+li
+  list-style none
+
 // }}} END General
 
 // Landing {{{
@@ -282,12 +285,17 @@ h1.super
 // Header {{{
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+.archiveByClient
+  align(vertical)
 .header-center
   line-height 46px
   margin 0
 
 #header.landing
   background #fafafa
+
+.mt5
+  margin-top 5px
 
 #header
   clearfix()
@@ -750,6 +758,8 @@ input[type=submit]
   border 1px solid blue
   color blue
   margin-bottom 10px
+  &.mb
+    margin-bottom 50px
   h4
     font-weight bold
     margin-bottom 10px

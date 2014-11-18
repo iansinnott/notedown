@@ -1,7 +1,13 @@
 Template.notes.helpers({
+
   notes: Utils.getCursorFor('note'),
   actions: Utils.getCursorFor('action'),
-  questions: Utils.getCursorFor('question')
+  questions: Utils.getCursorFor('question'),
+
+  showAlert: function() {
+    return Meteor.user().profile.noClientWarning;
+  }
+
 });
 
 Template.notes.events({
@@ -25,12 +31,25 @@ Template.notes.events({
   },
 
   /**
-   * TODO: I need to save the fact that this has been shown already. Save this
-   * functionality for until I figure out how I want to write user prefs.
+   * No preventing the default here because we actually want the default
+   * behavior. Just want to make sure the message doesn't show up again next
+   * time the user comes back to the notes page.
+   */
+  'click .close-redirect': function() {
+    Utils.updateProfile({ noClientWarning: false });
+  },
+
+  /**
+   * Close the dialogue that informs the user about not having clients. I save
+   * the fact that hey have seen this message to their profile only after the
+   * animation has completed b/c otherwise the reactivity would cause the alert
+   * to dissappear before it slid up.
    */
   'click .close': function(e, template) {
     e.preventDefault();
-    template.$('.alert-info').slideUp();
+    template.$('.alert-info').slideUp(function() {
+      Utils.updateProfile({ noClientWarning: false });
+    });
   }
 });
 

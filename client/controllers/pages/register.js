@@ -19,7 +19,16 @@ Template.register.events({
       return false;
     }
 
-    Accounts.createUser({ email: email, password: pass }, handleError);
+    Accounts.createUser({
+      email: email,
+      password: pass,
+      profile: {
+
+        // By default, show a warning when there are no clients yet
+        noClientWarning: true
+
+      }
+    }, handleError);
 
     return false;
   }

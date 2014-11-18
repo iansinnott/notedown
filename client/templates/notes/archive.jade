@@ -13,12 +13,12 @@ template(name='archive')
           each questions
             +archivedPowerNote
 
-    ul#notes
+    #notes
       if hasArchive
         each archived_notes
           +archivedNote
       else
-        li.no-records
+        .no-records
           h4 You don't have any archived notes yet.
           p
             | Notes can be archived from by clicking the

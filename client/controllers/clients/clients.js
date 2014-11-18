@@ -28,6 +28,12 @@ Template.clients.events({
  * Setup autoresize for all textareas. They are hidden initially.
  */
 Template.clients.rendered = function() {
+
+  // Focus if passed the hash
+  if (location.hash === '#new')
+    this.$('#new-client input').focus();
+
+  // Set up autosize
   this.$('textarea.text-edit').autosize({
     append: false // Don't append a newline
   });

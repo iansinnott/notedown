@@ -38,4 +38,8 @@ These are all features I'd like to implement, but they are contingent on my own 
 * Guided tour
 * Custom 'types' (choose a token, pick a color, then all notes prefixed with #{token} are set to that type)
 * Relative dates for notes and clients
+* Add a separator between notes added on different dates
+* Instant search
+  * Fuzzy finding
+  * Highlighting of search terms in matching notes
 

@@ -22,17 +22,18 @@ template(name='notes')
         input(type='text', placeholder='New Note...')
         i.fa.fa-edit
 
-      .alert-info
-        h4 You don't have any clients yet
-        p Any notes you create will be personal notes. If you'd like to add 
-          | notes for someone else, add a new client:
-        .controls
-          a.btn-blue.small(href='/clients#new')
-            i.fa.fa-plus
-            | Add Client
-          a.btn-blue-o.small.close(href='#')
-            i.fa.fa-times
-            | Close this message 
+      if showAlert
+        .alert-info.mb
+          h4 You don't have any clients yet
+          p Any notes you create will be personal notes. If you'd like to add 
+            | notes for someone else, add a new client:
+          .controls
+            a.btn-blue.small.close-redirect(href='/clients#new')
+              i.fa.fa-plus
+              | Add Client
+            a.btn-blue-o.small.close(href='#')
+              i.fa.fa-times
+              | Close this message 
 
 
     ul#power-notes
@@ -48,14 +49,14 @@ template(name='notes')
 
     ul#notes
       if hasNotes
-        h1 boosh
         each notes
           +note
       else
         li.no-records
           h4 
-            | You don't have any notes for 
-            span.hl= currentClient
-            | yet.
+            | You don't have any notes 
+            if hasClients
+              | for
+              span.hl #{currentClient}.
           p Add some using the input above.
 
