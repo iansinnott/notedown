@@ -50,4 +50,6 @@ These are all features I'd like to implement, but they are contingent on my own 
 * Instant search
   * Fuzzy finding
   * Highlighting of search terms in matching notes
+* Translation/Internationalization
+* Collaboration
 

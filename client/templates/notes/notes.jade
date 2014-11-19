@@ -1,10 +1,10 @@
-// Will be rendered in the header
+//- Will be rendered in the header
 template(name='notesHeader')
   .page-title
     h2.header-center Notes
       
 
-// Rendered in the main app area
+//- Rendered in the main app area
 template(name='notes')
   .container
     #new-note
@@ -46,11 +46,10 @@ template(name='notes')
       else
         li.no-records
           h4 
-            | You don't have any notes 
             if hasClients
-              | for
+              | You don't have any notes for
               span.hl #{currentClient}.
             else
-              | .
+              | You don't have any notes.
           p Add some using the input above.
 

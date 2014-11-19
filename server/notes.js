@@ -24,7 +24,7 @@ Meteor.methods({
 
     return Notes.insert({
       type: type,
-      note: (type === 'note') ? text : text.slice(1),
+      note: (type === 'note') ? text : text.slice(1).trim(),
       userId: Meteor.userId(),
       archived: false,
       client: clientId || Meteor.userId(), // Default to current user

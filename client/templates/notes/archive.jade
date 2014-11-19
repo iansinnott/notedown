@@ -26,12 +26,11 @@ template(name='archive')
       else
         .no-records
           h4 
-            | You don't have any archived notes
             if hasClients
-              | for
+              | You haven't archived any notes for
               span.hl #{currentClient}.
             else
-              | .
+              | You haven't archived any notes.
           p
             | Notes can be archived from by clicking the
             i.fa.fa-archive

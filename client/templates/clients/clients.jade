@@ -18,5 +18,8 @@ template(name='clients')
 
     #client-archives
       if hasClientsArchive
+        h3.underline
+          i.fa.fa-archive
+          | Archived Clients
         each archived_clients
           +archivedClient
