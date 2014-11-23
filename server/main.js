@@ -27,4 +27,21 @@ Meteor.startup(function () {
   }
 });
 
+Meteor.methods({
 
+  sendEmail: function (from, message) {
+    check([from, message], [String]);
+
+    // Let other method calls from the same client start running,
+    // without waiting for the email sending to complete.
+    this.unblock();
+
+    Email.send({
+      to: "ian@iansinnott.com",
+      from: from,
+      subject: "New Message from NoteDown -- " + from,
+      text: message
+    });
+  }
+
+});

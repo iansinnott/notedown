@@ -34,7 +34,7 @@ Template.login.events({
 function handleError(err, $div) {
   if (!err) return;
 
-  console.log(err.reason); // debug
+  console.error(err.reason);
   $('.alert-error')
     .html(err.reason)
     .slideDown();
