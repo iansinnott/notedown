@@ -5,9 +5,9 @@ template(name='footer')
       //-       better to go to the archives or notes for the currently selected
       //-       client with ID intact in the URL
       if currentUser
-        li: a(href='/notes') Notes
+        li: a(href='/notes/me') Notes
         li: a(href='/clients') Clients
-        li: a(href='/archive') Archive
+        li: a(href='/archive/me') Archive
       else
         li: a(href='/') Home
       li: a(href='/demo') Demo
