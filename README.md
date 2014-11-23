@@ -27,6 +27,9 @@ _A note-taking app..._
 
 * Preferences (markdown on/off, default sort order, password reset, email settings, etc)
 * UI performance improvements (Refactor Meteor methods implementation of create/update)
+* Bug Fixes (see Issues)
+* ~~Write `/about` copy~~ Nevermind, no need for an about page yet
+* `/feedback` page
 
 ## Roadmap
 
@@ -34,10 +37,7 @@ These are all features I'd like to implement, but they are contingent on my own 
 
 #### Initial Release (1.0)
 
-* Bug Fixes (see Issues)
-* Write `/about` copy
-* `/feedback` page
-  * Will need mail support for submitted feedback
+* Setup mailgun so that I can receive mail sent through the feedback form
 * Build out demo
 
 #### Next Release (1.x)
