@@ -35,6 +35,10 @@ These are all features I'd like to implement, but they are contingent on my own 
 
 * Bug Fixes (see Issues)
 * UI performance improvements (Refactor Meteor methods implementation of create/update)
+* Write `/about` copy
+* `/feedback` page
+  * Will need mail support for submitted feedback
+* Build out demo
 
 #### Next Release (1.x)
 

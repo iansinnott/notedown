@@ -8,7 +8,6 @@ NoteEvents = {
    * resize so that it matches the size of the text.
    */
   'dblclick .text': function(e, template) {
-    console.log('dblclick .text'); // debug
     template.$('.note').addClass('editting');
     template.$('.text-edit')
       .focus()
@@ -23,7 +22,6 @@ NoteEvents = {
    * newlines will be removed.
    */
   'keydown .text-edit': function(e, template) {
-    console.log('keydown .text-edit'); // debug
     var $textarea = $(e.currentTarget);
 
     var text = $textarea.val().trim().replace(/\n+$/g,'');
@@ -36,7 +34,6 @@ NoteEvents = {
   },
 
   'blur .text-edit': function(e, template) {
-    console.log('blur .text-edit'); // debug
     var $textarea = $(e.currentTarget);
 
     // Reset the text.
@@ -47,7 +44,6 @@ NoteEvents = {
   },
 
   'click .archive': function(e, template) {
-    console.log('click .archive'); // debug
     Meteor.call('archiveNote', template.data);
   }
 
