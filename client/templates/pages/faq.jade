@@ -1,49 +1,54 @@
 template(name='faq')
-  #faq
+  +contentFor('header')
+    .page-title
+      h2.header-center FAQ
 
-    .question
-      p.q What is this?
-      p.a 
-        :markdown
-          This is a personal project of [Ian Sinnott][ian]. The goal in creating 
-          NoteDown was to provide a quicky and easy means of taking notes during
-          a conversation. For more info, see the [about page](/about).
+  .container
+    #faq
 
-          [ian]: http://iansinnott.com
+      .question
+        p.q What is this?
+        .a 
+          :markdown
+            This is a personal project of [Ian Sinnott][ian]. The goal in creating 
+            NoteDown was to provide a quicky and easy means of taking notes during
+            a conversation. For more info, see the [about page](/about).
 
-    .question
-      p.q Why would I use this?
-      p.a
-        :markdown
-          Do you ever find that you forget a lot of what was said during a 
-          phonecall or conversation? NoteDown was designed to help with that
-          problem by providing a simple and quick way to take down notes on the
-          fly. Some possible use cases for NoteDown include:
+            [ian]: http://iansinnott.com
 
-          * Taking notes while on the phone with a client or customer.
-          * Maintaining detailed records of important calls & conversations.
-          * Revisiting past discussions to see what was said.
+      .question
+        p.q What can I use this for?
+        .a
+          :markdown
+            Do you ever find that you forget a lot of what was said during a 
+            phonecall or conversation? NoteDown was designed to help with that
+            problem by providing a simple and quick way to take down notes on the
+            fly. Some possible use cases for NoteDown include:
 
-          The creator of NoteDown uses it for all of the above. It's free to use
-          so use it however you like. If you think something is missing or want
-          to see a new feature added, send us a message using the
-          [Feedback Page](/feedback).
+            * Taking notes while on the phone with a client or customer.
+            * Maintaining detailed records of important calls & conversations.
+            * Revisiting past discussions to see what was said.
 
-    .question
-      p.q Is this free?
-      p.a Yes. I currently have no plans to monetize the site.
+            The creator of NoteDown uses it for all of the above. It's free to use
+            so use it however you like. If you think something is missing or want
+            to see a new feature added, send us a message using the
+            [Feedback Page](/feedback).
 
-    .question
-      p.q What is Markdown and how do I use it?
-      p.a
-        :markdown
-          Markdown way of writing where you _write_ formatting into the text of
-          your document. For example, in a dradition word processor you might 
-          select a word and then click a button to make it italic. In Markdown, 
-          you simpley add a `_` (underscore) before and after the word: For
-          example: `Markdown is _really_ useful.`.
+      .question
+        p.q Is this free?
+        .a Yes. I currently have no plans to monetize the site.
 
-          For a quick reference of what formatting is possible with Markdown
-          check out [this Markdown Cheatsheet][md]
+      .question
+        p.q What is Markdown and how do I use it?
+        .a
+          :markdown
+            Markdown way of writing where you _write_ formatting into the text of
+            your document. For example, in a dradition word processor you might 
+            select a word and then click a button to make it italic. In Markdown, 
+            you simpley add a `_` (underscore) before and after the word: For
+            example: `Markdown is _really_ useful.`.
 
-          [md]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+            For a quick reference of what formatting is possible with Markdown
+            check out [this Markdown Cheatsheet][md]
+
+            [md]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet

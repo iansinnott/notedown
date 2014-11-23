@@ -748,6 +748,7 @@ form
   input[type=password]
   input[type=email]
   input[type=tel]
+  textarea
     border 1px solid gray
     padding 10px 15px
     font-size 18px
@@ -828,4 +829,42 @@ input[type=submit]
   border 1px solid red
   color darken(red, 20%)
 
+
+#feedback
+  margin-top 100px
+  textarea
+    resize none
+
 // }}} END Forms
+
+// FAQ {{{
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+pre.txt
+code
+  font-family monospace
+  background gray
+  padding 2px 6px
+  line-height 1
+  border-radius 3px
+  color darken(gray, 40%)
+
+#faq
+  margin-top 50px
+  line-height 1.5
+  .question
+    margin-bottom 50px
+  p.q
+    font-style italic
+    font-weight bold
+    margin-bottom 10px
+  p
+    line-height 1.5
+  ul
+    margin-bottom 20px
+  li
+    font-size 18px
+    list-style disc
+    margin-left 20px
+
+// }}} END FAQ

@@ -1,10 +1,19 @@
 template(name='feedback')
-  h1 Feedback page bro
+  +contentFor('header')
+    .page-title
+      h2.header-center Feedback
 
-  form#feedback
-    input#email(type='email', name='email', placeholder='Email')
+  form#feedback.full.form
+    h3.center Use the form bellow to get in touch
+    p 
+      | We're always happy to hear from you. Have suggestions? Want to see a new
+      | feature? Just want to get in touch? Let us know.
+
+    .input-group
+      i.fa.fa-envelope-o
+      input#email(type='email', placeholder='Email')
     textarea#message(name='message', placeholder='Message')
     button(type='submit') Send
 
-  small.slide-down.alert.alert-success
-  small.slide-down.alert.alert-error
+    .alert-error.slide-down
+    .alert-success.slide-down
