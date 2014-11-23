@@ -1,6 +1,16 @@
 Template.clientSelect.helpers({
   userId: Meteor.userId(),
-  clients: Clients.find({ archived: false }, { sort: { 'name': 1 } })
+  clients: Clients.find({ archived: false }, { sort: { 'name': 1 } }),
+
+  /**
+   * Return whether or not the current ID is equal to the currently selected
+   * client.
+   * @return {string}
+   */
+  isSelected: function() {
+    return this._id === Session.get('currentClient');
+  }
+
 });
 
 Template.clientSelect.events({
@@ -32,6 +42,11 @@ Template.clientSelect.rendered = function() {
     placeholder: 'Select a client...'
   });
 
-  // Set the value to the currently selected client if there is one.
-  $select.select2('val', Session.get('currentClient') || '');
+  // Set the value to the currently selected client if there is one. Works
+  // reactively to maintain consistency between the currently set client and the
+  // selected value displayed in the UI.
+  Tracker.autorun(function() {
+    $select.select2('val', Session.get('currentClient') || '');
+  });
+
 };

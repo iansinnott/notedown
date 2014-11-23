@@ -6,4 +6,7 @@ template(name='clientSelect')
         option
         option(value='#{userId}') Me
         each clients
-          option(value='#{_id}')= name
+          if isSelected
+            option(value='#{_id}', selected)= name
+          else
+            option(value='#{_id}')= name
