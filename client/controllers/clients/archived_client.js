@@ -1,3 +1,7 @@
+var warning = "Are you sure? This will delete the client along with ALL NOTES" +
+              " that you have saved for this client. This action cannot be" +
+              " undone.";
+
 Template.archivedClient.events({
 
   'click .restore': function(e, view) {
@@ -5,7 +9,7 @@ Template.archivedClient.events({
   },
 
   'click .delete': function(e, view) {
-    if (!confirm("Are you sure? This can't be undone.")) return false;
+    if (!confirm(warning)) return false;
     Meteor.call('destroyClient', view.data);
   }
 

@@ -1,7 +1,8 @@
-template(name='clientsHeader')
-  .page-title
-    h2.header-center Clients
 template(name='clients')
+  +contentFor('header')
+    .page-title
+      h2.header-center Clients
+
   .container
     #new-client
       input(type='text', placeholder='New Client...')

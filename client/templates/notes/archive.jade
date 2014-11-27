@@ -1,8 +1,8 @@
-template(name='archiveHeader')
-  .page-title
-    h2.header-center Archived Notes
-
 template(name='archive')
+  +contentFor('header')
+    .page-title
+      h2.header-center Archived Notes
+
   .container
     #note-controls
       if hasClients
