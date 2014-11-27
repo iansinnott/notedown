@@ -77,3 +77,4 @@ These are all features I'd like to implement, but they are contingent on my own 
 * Add a photo to a note (drag and drop)
 * Translation/Internationalization
 * Collaboration
+* Responsive (this is not particularly difficult, but it just doesn't seem necessary for this app. It was built entirely to scratch my own itch, and mobile usage is not high on my list of prorities)

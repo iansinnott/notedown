@@ -23,10 +23,18 @@ Template.feedback.events({
 
     Meteor.call('sendEmail', from, message, handleError);
 
+    // Clear the input fields.
+    template.$('#email').val('');
+    template.$('#message').val('');
+
     return false;
   }
 
 });
+
+Template.feedback.rendered = function() {
+  this.$('#message').autosize({ append: false });
+};
 
 /**
  * Handle an error by showing the user the reason for the error and sliding down
