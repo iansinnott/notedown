@@ -1,11 +1,8 @@
-//- Will be rendered in the header
-template(name='notesHeader')
-  .page-title
-    h2.header-center Notes
-      
-
-//- Rendered in the main app area
 template(name='notes')
+  +contentFor('header')
+    .page-title
+      h2.header-center Notes
+
   .container
     #new-note
       input(type='text', placeholder='New Note...')

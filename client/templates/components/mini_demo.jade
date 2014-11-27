@@ -1,0 +1,30 @@
+template(name='miniDemo')
+  .window(id!=id)
+    .title-bar
+      p.title= title
+    .content
+      #new-note
+        input(type='text', placeholder='New Note...')
+        i.fa.fa-edit
+
+      if hasDemoPowerNotes
+        ul#power-notes
+          if hasDemoActions
+            #actions
+              each actions
+                +demoPowerNote
+
+          if hasDemoQuestions
+            #questions
+              each questions
+                +demoPowerNote
+
+      ul#notes
+        if hasDemoNotes
+          each notes
+            +demoNote
+        else
+          li.no-records
+            h4 
+              | You don't have any demo notes.
+            p Add some using the input above.

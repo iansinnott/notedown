@@ -1,0 +1,8 @@
+template(name='demoNote')
+  .note
+    ul.table
+      li.cell.note-cell
+        p.text= note
+        textarea.text-edit.hidden(rows='1')= note
+      li.cell.date-cell: p.date= formatDate
+      li.cell.button-cell: button.delete(href='#'): i.fa.fa-times

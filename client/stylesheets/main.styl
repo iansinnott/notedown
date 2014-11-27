@@ -137,6 +137,15 @@ input[type=submit]
 li
   list-style none
 
+p
+  strong
+    font-weight bold
+  em
+    font-style italic
+
+.red
+  color red
+
 // }}} END General
 
 // Landing {{{
@@ -214,6 +223,11 @@ li
   height 500px
   position relative
   bottom -5px
+  .content
+    height 100% // Limit the height to the height of the parent
+    overflow-y auto // And allow it to scroll
+    padding 20px
+    padding-bottom 40px // Make up for negative offset at the bottom
   h1 // Temporary
     position absolute
     text-align center

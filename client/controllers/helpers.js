@@ -55,7 +55,12 @@ var Helpers = {
     archived: true
   }),
   hasClients: _hasRecords(Clients, { archived: false }),
-  hasClientsArchive: _hasRecords(Clients, { archived: true })
+  hasClientsArchive: _hasRecords(Clients, { archived: true }),
+
+  hasDemoNotes: _hasRecords(DemoNotes, {}),
+  hasDemoQuestions: _hasRecords(DemoNotes, { type: 'question' }),
+  hasDemoActions: _hasRecords(DemoNotes, { type: 'action' }),
+  hasDemoPowerNotes: _hasRecords(DemoNotes, { type: { $in: _.values(Utils.TOKENS) } })
 
 };
 

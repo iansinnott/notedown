@@ -1,4 +1,67 @@
 template(name='demo')
-  section
-    .container
-      h1.center Demo app here
+  +contentFor('header')
+    .page-title
+      h2.header-center.red Demo
+
+  .container
+    #new-note
+      input(type='text', placeholder='New Note...')
+      i.fa.fa-edit
+
+    if currentUser
+      .alert-info.mb.mt.no-clients
+        h4 Welcome to the demo app
+        :markdown
+          **Note:** You can play around here all you want, but notes created
+          here **_will not_** be saved to your permanent notes. Just a heads up.
+        .controls
+          a.btn-blue.small(href='/notes/me')
+            i.fa.fa-plus
+            | Take me to my Notes
+          a.btn-blue-o.small.close(href='#')
+            i.fa.fa-times
+            | Got it! Now close this message.
+
+    else if showDemoAlert
+      .alert-info.mb.mt.no-clients
+        h4 Welcome to the demo app
+        :markdown
+          Create all the ntoes you want. When you decide to make an account
+          you will get the full set of features:
+
+          * Notes are stored permanently and backed up regularly
+          * Access your notes anywhere from any device
+          * Real-time syncing
+          * Create notes for specific clients
+          * Archive notes so you can revisit them later
+
+        .controls
+          a.btn-blue.small(href='/clients#new')
+            i.fa.fa-plus
+            | Add Client
+          a.btn-blue-o.small.close(href='#')
+            i.fa.fa-times
+            | Thanks! Now close this message.
+
+    if hasDemoPowerNotes
+      ul#power-notes
+        if hasDemoActions
+          #actions
+            each actions
+              +powerNote
+
+        if hasDemoQuestions
+          #questions
+            each questions
+              +powerNote
+
+    ul#notes
+      if hasDemoNotes
+        each notes
+          +note
+      else
+        li.no-records
+          h4 
+            | You don't have any demo notes.
+          p Add some using the input above.
+
