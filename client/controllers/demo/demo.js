@@ -1,18 +1,3 @@
-function createDemoNote(text) {
-  if (!text)
-    throw new Meteor.Error('no-text', 'No text provided.');
-
-  var type = Utils.TOKENS[text[0]] || 'note',
-      atts = {
-        type: type,
-        note: (type === 'note') ? text : text.slice(1).trim(),
-        created_at: Date.now(),
-        updated_at: Date.now()
-      };
-
-  return DemoNotes.insert(atts);
-}
-
 Template.demo.helpers({
 
   notes: function() {

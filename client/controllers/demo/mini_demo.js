@@ -46,7 +46,7 @@ Template.miniDemo.events({
         text     = input.value.trim();
 
     if (e.which === Utils.ENTER_KEY && text) {
-      createDemoNote(text);
+      createDemoNote(text, true);
       input.value = '';
     }
   },
