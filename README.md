@@ -42,6 +42,8 @@ These are all features I'd like to implement, but they are contingent on my own 
 
 #### Next Release (1.x)
 
+* Notebooks vs clients
+  * Don't use 'clients'. Instead use 'notebooks' to separate notes.
 * How-to Guide
   * Simple static page with instructions for basic Note CRUD.
 * Shift enter to add a new line instead of save

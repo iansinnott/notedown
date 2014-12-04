@@ -146,6 +146,17 @@ p
 .red
   color red
 
+.markdown
+  li
+    list-style disc
+    font-size 18px
+    line-height 1.5
+    margin-left 30px
+    color black
+
+.no-pad
+  padding-left 8px !important
+
 // }}} END General
 
 // Landing {{{
@@ -218,6 +229,10 @@ p
   p
     line-height 1.7
 
+#mini-demo, #demo
+  #power-notes
+    .delete
+      border-left 1px solid darken(gray, 20%)
 #mini-demo
   width 100%
   height 500px
@@ -767,13 +782,13 @@ form
   input[type=email]
   input[type=tel]
   textarea
-    border 1px solid gray
+    border 1px solid darken(gray, 10%)
     padding 10px 15px
     font-size 18px
     margin-bottom 10px
     width 100%
     &:focus
-      border 1px solid darken(gray, 20%)
+      border 1px solid darken(gray, 30%)
 
 
   .input-group

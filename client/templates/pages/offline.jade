@@ -1,45 +1,42 @@
-template(name='demo')
+template(name='offline')
   +contentFor('header')
     .page-title
-      h2.header-center.red Demo
+      h2.header-center.red Offline
 
-  .container
+  .container#demo
     #new-note
       input(type='text', placeholder='New Note...')
       i.fa.fa-edit
 
-    if currentUser
+    if showOfflineWarning
       .alert-info.mb.mt.no-clients
-        h4 Welcome to the demo app
+        h4 Welcome to the offline app
         :markdown
-          **Note:** You can play around here all you want, but notes created
+          **Use the offline app all you want.** Just be aware that notes created
           here **_will not_** be saved to your permanent notes. Just a heads up.
         .controls
           a.btn-blue.small(href='/notes/me')
             i.fa.fa-plus
-            | Take me to my Notes
-          a.btn-blue-o.small.close(href='#')
+            | Use the app online
+          a.btn-blue-o.small.close(href='#', data-session-set='showOfflineWarning')
             i.fa.fa-times
             | Got it! Now close this message.
 
     else if showDemoAlert
-      .alert-info.mb.mt.no-clients
+      .alert-info.mb.mt.no-clients.markdown
         h4 Welcome to the demo app
         :markdown
-          Create all the ntoes you want. When you decide to make an account
-          you will get the full set of features:
+          Create all the notes you want. When you decide to use the app online
+          you will get even more features:
 
           * Notes are stored permanently and backed up regularly
           * Access your notes anywhere from any device
           * Real-time syncing
-          * Create notes for specific clients
+          * Create notes for specific people
           * Archive notes so you can revisit them later
 
         .controls
-          a.btn-blue.small(href='/clients#new')
-            i.fa.fa-plus
-            | Add Client
-          a.btn-blue-o.small.close(href='#')
+          a.btn-blue-o.small.close.no-pad(href='#', data-session-set='showDemoAlert')
             i.fa.fa-times
             | Thanks! Now close this message.
 

@@ -1,4 +1,4 @@
-Template.demo.helpers({
+Template.offline.helpers({
 
   notes: function() {
     return DemoNotes.find({ type: 'note' }, { sort: { 'created_at': -1 } });
@@ -12,14 +12,25 @@ Template.demo.helpers({
     return DemoNotes.find({ type: 'question' }, { sort: { 'created_at': -1 } });
   },
 
+  /**
+   * Only show to not loggec in users.
+   */
   showDemoAlert: function() {
     if (Meteor.user()) return false;
-    return Session.get('showDemoAlerts');
+    return Session.get('showDemoAlert');
+  },
+
+  /**
+   * Only show to logged in users who are looking at the offline app.
+   */
+  showOfflineWarning: function() {
+    if (!Meteor.user()) return false;
+    return Session.get('showOfflineWarning');
   }
 
 });
 
-Template.demo.events({
+Template.offline.events({
   'focus #new-note input': function(e, template) {
     template.$('#new-note').addClass('focus');
   },
@@ -29,8 +40,8 @@ Template.demo.events({
   },
 
   'keydown #new-note input': function(e, template) {
-    var input    = e.currentTarget,
-        text     = input.value.trim();
+    var input = e.currentTarget,
+        text  = input.value.trim();
 
     if (e.which === Utils.ENTER_KEY && text) {
       createDemoNote(text);
@@ -47,7 +58,9 @@ Template.demo.events({
   'click .close': function(e, template) {
     e.preventDefault();
     template.$('.alert-info').slideUp(function() {
-      Session.set('showDemoAlert', false);
+      var data = $(e.currentTarget).data('sessionSet')
+      console.log('data: ' + data); // debug
+      Session.set(data, false);
     });
   }
 });
