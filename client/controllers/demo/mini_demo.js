@@ -1,4 +1,4 @@
-function createDemoNote(text) {
+function createDemoNote(text, temporary) {
   if (!text)
     throw new Meteor.Error('no-text', 'No text provided.');
 
@@ -10,22 +10,25 @@ function createDemoNote(text) {
         updated_at: Date.now()
       };
 
-  return DemoNotes.insert(atts);
+  if (temporary)
+    return TempDemoNotes.insert(atts);
+  else
+    return DemoNotes.insert(atts);
 }
 
 Template.miniDemo.helpers({
 
   notes: function() {
-    return DemoNotes.find({ type: 'note' })
+    return TempDemoNotes.find({ type: 'note' }, { sort: { 'created_at': -1 } });
   },
 
   actions: function() {
-    return DemoNotes.find({ type: 'action' })
+    return TempDemoNotes.find({ type: 'action' }, { sort: { 'created_at': -1 } });
   },
 
   questions: function() {
-    return DemoNotes.find({ type: 'question' })
-  }
+    return TempDemoNotes.find({ type: 'question' }, { sort: { 'created_at': -1 } });
+  },
 
 });
 
@@ -46,6 +49,11 @@ Template.miniDemo.events({
       createDemoNote(text);
       input.value = '';
     }
+  },
+
+  'click .delete': function(e, template) {
+    e.preventDefault();
+    return TempDemoNotes.remove(template.data._id);
   },
 
   /**

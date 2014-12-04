@@ -16,15 +16,15 @@ function createDemoNote(text) {
 Template.demo.helpers({
 
   notes: function() {
-    return DemoNotes.find({ type: 'note' })
+    return DemoNotes.find({ type: 'note' }, { sort: { 'created_at': -1 } });
   },
 
   actions: function() {
-    return DemoNotes.find({ type: 'action' })
+    return DemoNotes.find({ type: 'action' }, { sort: { 'created_at': -1 } });
   },
 
   questions: function() {
-    return DemoNotes.find({ type: 'question' })
+    return DemoNotes.find({ type: 'question' }, { sort: { 'created_at': -1 } });
   },
 
   showDemoAlert: function() {

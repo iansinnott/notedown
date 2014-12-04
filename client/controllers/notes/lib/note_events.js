@@ -44,6 +44,7 @@ NoteEvents = {
   },
 
   'click .archive': function(e, template) {
+    console.log('called archive'); // debug
     Meteor.call('archiveNote', template.data);
   }
 

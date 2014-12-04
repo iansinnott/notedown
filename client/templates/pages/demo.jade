@@ -48,17 +48,17 @@ template(name='demo')
         if hasDemoActions
           #actions
             each actions
-              +powerNote
+              +demoPowerNote
 
         if hasDemoQuestions
           #questions
             each questions
-              +powerNote
+              +demoPowerNote
 
     ul#notes
       if hasDemoNotes
         each notes
-          +note
+          +demoNote
       else
         li.no-records
           h4 
