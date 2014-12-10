@@ -9,17 +9,17 @@ var landingFixtures = [
     updated_at: Date.now()
   },{
     type: 'question',
-    note: 'Create questions by first typing a \'?\'',
-    created_at: Date.now(),
-    updated_at: Date.now()
-  },{
-    type: 'note',
-    note: "When you're ready, create an accounts and your notes will be stored forever.",
+    note: "Create questions by ending a sentence with a '?'",
     created_at: Date.now(),
     updated_at: Date.now()
   },{
     type: 'note',
     note: "Add as many notes as you like!",
+    created_at: Date.now(),
+    updated_at: Date.now()
+  },{
+    type: 'note',
+    note: "When you're ready, create an account and your notes will be saved, backed up and available on multiple devices.",
     created_at: Date.now(),
     updated_at: Date.now()
   }

@@ -87,3 +87,7 @@ Template.miniDemo.events({
     });
   }
 });
+
+Template.miniDemo.rendered = function() {
+  this.$('#new-note input').focus();
+};
