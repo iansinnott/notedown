@@ -28,17 +28,39 @@ DemoNoteEvents = {
   }
 };
 
+/**
+ * Todo: this code is duplicated in mini_demo.js, and most (although not all) of
+ * this is also duplicated in notes.js.
+ */
 createDemoNote = function(text, temporary) {
   if (!text)
     throw new Meteor.Error('no-text', 'No text provided.');
 
-  var type = Utils.TOKENS[text[0]] || 'note',
-      atts = {
-        type: type,
-        note: (type === 'note') ? text : text.slice(1).trim(),
-        created_at: Date.now(),
-        updated_at: Date.now()
-      };
+  // Make sure there is no extra whitespace messing with the first and last
+  // character.
+  text = text.trim();
+
+  var prefix = _.first(text),
+      suffix = _.last(text),
+      type;
+
+  // Note type defaults to 'note'.
+  if (Utils.TOKENS.PREFIX[prefix]) {
+    type = Utils.TOKENS.PREFIX[prefix];
+    text = text.slice(1).trim();
+  } else if (Utils.TOKENS.SUFFIX[suffix]) {
+    type = Utils.TOKENS.SUFFIX[suffix];
+    text = text.slice(0, -1).trim();
+  } else {
+    type = 'note';
+  }
+
+  var atts = {
+    type: type,
+    note: text,
+    created_at: Date.now(),
+    updated_at: Date.now()
+  };
 
   if (temporary)
     return TempDemoNotes.insert(atts);

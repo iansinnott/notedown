@@ -8,7 +8,7 @@ Template.archivedPowerNote.helpers({
    * @return {string} !|?
    */
   token: function() {
-    return _.invert(Utils.TOKENS)[this.type];
+    return Utils.TOKENS.byType(this.type);
   }
 
 });

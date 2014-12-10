@@ -47,11 +47,11 @@ var Helpers = {
   hasQuestions: _hasRecords(Notes, { type: 'question' }),
   hasActions: _hasRecords(Notes, { type: 'action' }),
   hasPowerNotes: _hasRecords(Notes, {
-    type: { $in: _.values(Utils.TOKENS) },
+    type: { $in: Utils.TOKENS.values() },
     archived: false
   }),
   hasPowerNotesArchive: _hasRecords(Notes, {
-    type: { $in: _.values(Utils.TOKENS) },
+    type: { $in: Utils.TOKENS.values() },
     archived: true
   }),
   hasClients: _hasRecords(Clients, { archived: false }),
@@ -60,7 +60,7 @@ var Helpers = {
   hasDemoNotes: _hasRecords(DemoNotes, {}),
   hasDemoQuestions: _hasRecords(DemoNotes, { type: 'question' }),
   hasDemoActions: _hasRecords(DemoNotes, { type: 'action' }),
-  hasDemoPowerNotes: _hasRecords(DemoNotes, { type: { $in: _.values(Utils.TOKENS) } })
+  hasDemoPowerNotes: _hasRecords(DemoNotes, { type: { $in: Utils.TOKENS.values() } })
 
 };
 
