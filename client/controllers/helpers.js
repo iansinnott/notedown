@@ -7,6 +7,10 @@
 
 var Helpers = {
 
+  noteToHTML: function() {
+    return marked(this.note);
+  },
+
   /**
    * Return a formated date based on the timestamp of the current note.
    *

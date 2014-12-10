@@ -4,9 +4,7 @@ template(name='offline')
       h2.header-center.red Offline
 
   .container#demo
-    #new-note
-      input(type='text', placeholder='New Note...')
-      i.fa.fa-edit
+    +newNoteInput
 
     if showOfflineWarning
       .alert-info.mb.mt.no-clients

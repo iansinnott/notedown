@@ -19,12 +19,12 @@ Template.notes.events({
     template.$('#new-note').removeClass('focus');
   },
 
-  'keydown #new-note input': function(e, template) {
+  'keydown #new-note textarea': function(e, template) {
     var input    = e.currentTarget,
         text     = input.value.trim(),
         clientId = Session.get('currentClient');
 
-    if (e.which === Utils.ENTER_KEY && text) {
+    if (e.which === Utils.ENTER_KEY && !e.shiftKey && text) {
       Meteor.call('note', text, clientId, Utils.logError);
       input.value = '';
     }

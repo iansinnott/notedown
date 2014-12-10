@@ -4,9 +4,8 @@ template(name='notes')
       h2.header-center Notes
 
   .container
-    #new-note
-      input(type='text', placeholder='New Note...')
-      i.fa.fa-edit
+    +newNoteInput
+
     if showAlert
       .alert-info.mb.mt.no-clients
         h4 You don't have any clients yet

@@ -3,9 +3,7 @@ template(name='miniDemo')
     .title-bar
       p.title= title
     .content
-      #new-note
-        input(type='text', placeholder='New Note...')
-        i.fa.fa-edit
+      +newNoteInput
 
       if hasDemoPowerNotes
         ul#power-notes

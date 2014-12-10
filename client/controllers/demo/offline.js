@@ -39,11 +39,11 @@ Template.offline.events({
     template.$('#new-note').removeClass('focus');
   },
 
-  'keydown #new-note input': function(e, template) {
+  'keydown #new-note textarea': function(e, template) {
     var input = e.currentTarget,
         text  = input.value.trim();
 
-    if (e.which === Utils.ENTER_KEY && text) {
+    if (e.which === Utils.ENTER_KEY && !e.shiftKey && text) {
       createDemoNote(text);
       input.value = '';
     }

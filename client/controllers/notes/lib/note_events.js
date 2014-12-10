@@ -27,6 +27,14 @@ NoteEvents = {
     var text = $textarea.val().trim().replace(/\n+$/g,'');
 
     if (e.which !== Utils.ENTER_KEY) return;
+    else if (e.shiftKey) return;
+
+    // Reset the value of they entered nothing
+    if (!text) {
+      $textarea.val(template.data.note);
+      template.$('.note').removeClass('editting transition');
+      return;
+    }
 
     // Now if we've made it to here then actually update the note
     Meteor.call('updateNote', template.data, { note: text }, Utils.handleError);
