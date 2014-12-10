@@ -62,3 +62,5 @@ Template.demoPowerNote.helpers({
   }
 
 });
+
+Template.demoPowerNote.rendered = NoteRendered;

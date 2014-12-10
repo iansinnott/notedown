@@ -59,14 +59,30 @@ Template.miniDemo.events({
     template.$('#new-note').removeClass('focus');
   },
 
-  'keydown #new-note input': function(e, template) {
-    var input    = e.currentTarget,
-        text     = input.value.trim();
+  'keydown #new-note textarea': function(e, template) {
+    var $input = $(e.currentTarget),
+        text   = $input.val().trim();
 
-    if (e.which === Utils.ENTER_KEY && text) {
-      createDemoNote(text, true);
-      input.value = '';
-    }
+    // If they didn't press enter we don't care
+    if (e.which !== Utils.ENTER_KEY) return;
+
+    // There must be text
+    if (!text) return false;
+
+    // Hiting shift+enter will insert a linebreak
+    if (e.shiftKey) return;
+
+    // Create a new note if we got the enter key without shift and there is text
+    // to in the textarea. If the enter key is pressed make sure to return false
+    // to keep it form inserting a line break
+    createDemoNote(text, true);
+    $input.val('');
+
+    // This seems to be the only way of getting the textarea to resize back down
+    // to one row right after you hit enter.
+    // TODO: Test this in firefox
+    $input.height(30);
+    return false;
   },
 
   'click .delete': function(e, template) {

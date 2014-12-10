@@ -39,6 +39,13 @@ These are all features I'd like to implement, but they are contingent on my own 
 
 * Setup mailgun so that I can receive mail sent through the feedback form
 * Build out demo
+* The main note and client entry input should be a textarea that resizes itself
+
+**Still not working:**
+
+* Shift+enter doesn't work everywhere
+* Resetting a note if you edit it and change the text to nothing doesn't work.
+* Need to style the markdown within notes to allow for things like buleeted lists and such.
 
 #### Next Release (1.x)
 
@@ -46,7 +53,6 @@ These are all features I'd like to implement, but they are contingent on my own 
 
 **Urgent:**
 
-* The main note and client entry input should be a textarea that resizes itself
 * Shift enter to add a new line instead of save
 * Multiline support using `shift+enter`
 * Markdown support (GFM)
