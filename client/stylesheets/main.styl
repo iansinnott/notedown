@@ -875,14 +875,15 @@ pre.txt
 code
   font-family monospace
   background gray
-  padding 2px 6px
+  padding 3px 6px 0px
   line-height 1
   border-radius 3px
-  color darken(gray, 40%)
+  color darken(gray, 50%)
 
 #faq
   margin-top 50px
   line-height 1.5
+.markdown
   .question
     margin-bottom 50px
   p.q
@@ -897,5 +898,17 @@ code
     font-size 18px
     list-style disc
     margin-left 20px
+
+.text.markdown
+  h1
+  h2
+  h3
+  h4
+  ul
+  p
+    margin-top 20px
+    margin-bottom 0
+    &:first-child
+      margin-top 0
 
 // }}} END FAQ

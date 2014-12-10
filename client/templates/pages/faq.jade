@@ -4,7 +4,7 @@ template(name='faq')
       h2.header-center FAQ
 
   .container
-    #faq
+    #faq.markdown
 
       .question
         p.q What is this?
@@ -12,9 +12,18 @@ template(name='faq')
           +markdown
             This is a personal project of [Ian Sinnott][ian]. The goal in creating 
             NoteDown was to provide a quicky and easy means of taking notes during
-            a conversation. For more info, see the [about page](/about).
+            a conversation.
 
             [ian]: http://iansinnott.com
+
+      .question
+        p.q How do I use different types of notes?
+        .a 
+          +markdown
+            There are currently two types of "special" notes that you can create that will be displayed differentaly than the rest. 
+
+            * To create a qeustion, simply add a question mark to the end of a sentence.
+            * To create an action prefix the note with an exclamation mark. Example: "!Revise project scope."
 
       .question
         p.q What can I use this for?

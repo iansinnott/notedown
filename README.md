@@ -30,6 +30,12 @@ _A note-taking app..._
 * Bug Fixes (see Issues)
 * ~~Write `/about` copy~~ Nevermind, no need for an about page yet
 * `/feedback` page
+* Setup mailgun so that I can receive mail sent through the feedback form
+* Build out demo
+* The main note and client entry input should be a textarea that resizes itself
+* Shift+enter doesn't work everywhere
+  * As a caveat, this still does not work for power notes in the offline app. This is super strange as it still doesn't work even when using the event handler of the normal power notes (which do work).
+* Resetting a note if you edit it and change the text to nothing doesn't work.
 
 ## Roadmap
 
@@ -37,14 +43,6 @@ These are all features I'd like to implement, but they are contingent on my own 
 
 #### Initial Release (1.0)
 
-* Setup mailgun so that I can receive mail sent through the feedback form
-* Build out demo
-* The main note and client entry input should be a textarea that resizes itself
-
-**Still not working:**
-
-* Shift+enter doesn't work everywhere
-* Resetting a note if you edit it and change the text to nothing doesn't work.
 * Need to style the markdown within notes to allow for things like buleeted lists and such.
 
 #### Next Release (1.x)

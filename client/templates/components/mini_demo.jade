@@ -5,17 +5,13 @@ template(name='miniDemo')
     .content
       +newNoteInput
 
-      if hasDemoPowerNotes
-        ul#power-notes
-          if hasDemoActions
-            #actions
-              each actions
-                +demoPowerNote
-
-          if hasDemoQuestions
-            #questions
-              each questions
-                +demoPowerNote
+      ul#power-notes
+        #actions
+          each actions
+            +demoPowerNote
+        #questions
+          each questions
+            +demoPowerNote
 
       ul#notes
         if hasDemoNotes
