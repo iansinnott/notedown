@@ -42,13 +42,20 @@ These are all features I'd like to implement, but they are contingent on my own 
 
 #### Next Release (1.x)
 
+---
+
+**Urgent:**
+
+* The main note and client entry input should be a textarea that resizes itself
+* Shift enter to add a new line instead of save
+* Markdown support (GFM)
+
+---
+
 * Notebooks vs clients
   * Don't use 'clients'. Instead use 'notebooks' to separate notes.
 * How-to Guide
   * Simple static page with instructions for basic Note CRUD.
-* Shift enter to add a new line instead of save
-* The main note and client entry input should be a textarea that resizes itself
-* Markdown support (GHFM)
 * Multiline support using `shift+enter`
 * Settings Page
   * Password Changing
