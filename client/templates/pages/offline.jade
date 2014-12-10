@@ -11,7 +11,7 @@ template(name='offline')
     if showOfflineWarning
       .alert-info.mb.mt.no-clients
         h4 Welcome to the offline app
-        :markdown
+        +markdown
           **Use the offline app all you want.** Just be aware that notes created
           here **_will not_** be saved to your permanent notes. Just a heads up.
         .controls
@@ -25,7 +25,7 @@ template(name='offline')
     else if showDemoAlert
       .alert-info.mb.mt.no-clients.markdown
         h4 Welcome to the offline app
-        :markdown
+        +markdown
           Create all the notes you want. When you decide to use the app online
           you will get even more features:
 
