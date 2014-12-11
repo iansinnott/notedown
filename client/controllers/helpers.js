@@ -42,6 +42,10 @@ var Helpers = {
     return Clients.findOne(id).name;
   },
 
+  isProduction: function() {
+    return process && process.env.NODE_ENV === 'production';
+  },
+
   /**
    * The following check the existence of various records in the DB given
    * creteria (second arg). See _hasRecords bellow for more info.
