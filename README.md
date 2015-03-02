@@ -1,8 +1,34 @@
 # Notedown
 
-_A note-taking app..._
+_A free note-taking app..._
 
-## Meteor Gotchas
+![Notedown Usage Gif](http://dropsinn.s3.amazonaws.com/notedown-usage.gif)
+
+## What is this?
+
+Notedown is an app for quickly taking notes. I conceived this idea while working as a software consultant. Clients would often continually speak for minutes on end, so I wanted a quick and easy way to take notes about what was being said. 
+
+The app is totally **free** and I currently have no plans to monetize it.
+
+## Usage & Features
+
+Using Notedown is simple: Just type in the large input box and hit enter. A new note will be created.
+
+The more interesting features of Notedown are not so obvious:
+
+* Create _Actions_ be putting a `!` at the beginning of the note. _Actions_ will be orange.
+* Create _Questions_ by ending your note with a `?`. _Questions_ will be blue.
+* Use Markdown syntax throughout your notes. We parse Markdown as [GitHub Flavored Markdown][gfm].
+
+The best way to get to know the app is simply to use it. The offline version doesn't require login and contains most of the features of the full app. You can find it here:
+
+**[Notedown Offline Mode](http://notedown.us/offline)**
+
+[gfm]: https://help.github.com/articles/github-flavored-markdown/
+
+## Development Notes
+
+### Meteor Gotchas
 
 * Definitions should be placed under `lib/`. For example, I had initially defined `collections/` at the root level, but they were then getting loaded after I needed to use them. Lame.
 * Look at the following code:
@@ -23,7 +49,7 @@ _A note-taking app..._
 
     The bullet point is, reactivity _will not function_ unless the reactive data source (in this case the session & the mongo cursor) is wrapped in a function. If it is simply defined on the object we won't get reactivity. 
 
-## Already Done
+### Already Done
 
 * Preferences (markdown on/off, default sort order, password reset, email settings, etc)
 * UI performance improvements (Refactor Meteor methods implementation of create/update)
@@ -37,7 +63,7 @@ _A note-taking app..._
   * As a caveat, this still does not work for power notes in the offline app. This is super strange as it still doesn't work even when using the event handler of the normal power notes (which do work).
 * Resetting a note if you edit it and change the text to nothing doesn't work.
 
-## Roadmap
+### Roadmap
 
 These are all features I'd like to implement, but they are contingent on my own time and how much use I (or anyone else) actually gets out of the app initially.
 
