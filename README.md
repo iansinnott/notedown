@@ -2,7 +2,7 @@
 
 _A free note-taking app..._
 
-![Notedown Usage Gif](http://dropsinn.s3.amazonaws.com/notedown-usage.gif)
+![Notedown Usage Gif](https://github.com/iansinnott/notedown/blob/master/screen.gif)
 
 ## What is this?
 
