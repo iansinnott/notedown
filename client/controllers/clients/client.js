@@ -1,8 +1,8 @@
 /**
  * The client row.
  *
- * TODO: This is not dry. IT's basically the same as the functionality included
- * for a note row.
+ * TODO: This is not super dry. IT's basically the same as the functionality
+ *       included for a note row.
  */
 Template.client.events({
 

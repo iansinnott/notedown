@@ -43,7 +43,10 @@ var Helpers = {
   },
 
   isProduction: function() {
-    return process && process.env.NODE_ENV === 'production';
+    if (typeof process !== 'undefined')
+      return process.env.NODE_ENV === 'production';
+    else
+      return location.hostname === PRODUCTION_HOSTNAME;
   },
 
   /**
