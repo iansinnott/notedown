@@ -28,6 +28,8 @@ function createDemoNote(text, temporary) {
     updated_at: Date.now()
   };
 
+  console.log(TempDemoNotes.find().count());
+
   if (temporary)
     return TempDemoNotes.insert(atts);
   else

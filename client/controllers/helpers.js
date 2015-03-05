@@ -71,7 +71,9 @@ var Helpers = {
   hasDemoNotes: _hasRecords(DemoNotes, {}),
   hasDemoQuestions: _hasRecords(DemoNotes, { type: 'question' }),
   hasDemoActions: _hasRecords(DemoNotes, { type: 'action' }),
-  hasDemoPowerNotes: _hasRecords(DemoNotes, { type: { $in: Utils.TOKENS.values() } })
+  hasDemoPowerNotes: _hasRecords(DemoNotes, { type: { $in: Utils.TOKENS.values() } }),
+
+  hasTempDemoNotes: _hasRecords(TempDemoNotes, {})
 
 };
 
