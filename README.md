@@ -1,5 +1,7 @@
 # Notedown
 
+> **Update:** The site is no longer live. Additionally it used a now-outdated version of Meteor so it may take some work to get it to run locally with the lastest Meteor version. As such this repo exists mainly as an archive now.
+
 _A free note-taking app..._
 
 ![Notedown Usage Gif](https://github.com/iansinnott/notedown/blob/master/screen.gif)
@@ -20,9 +22,7 @@ The more interesting features of Notedown are not so obvious:
 * Create _Questions_ by ending your note with a `?`. _Questions_ will be blue.
 * Use Markdown syntax throughout your notes. We parse Markdown as [GitHub Flavored Markdown][gfm].
 
-The best way to get to know the app is simply to use it. The offline version doesn't require login and contains most of the features of the full app. You can find it here:
-
-**[Notedown Offline Mode](http://notedown.us/offline)**
+~~The best way to get to know the app is simply to use it. The offline version doesn't require login and contains most of the features of the full app. You can find it here:~~
 
 [gfm]: https://help.github.com/articles/github-flavored-markdown/
 
